@@ -15,7 +15,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from parameters import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
+    path('',views.home,name='home'),
     path('admin/', admin.site.urls),
+    path('parameters/',views.param_lib,name='param_lib'),
+    path('parameters/new/',views.get_new_param,name='new_param'),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block breadcrumb %}
+  <li class="breadcrumb-item active">Home</li>
+{% endblock %}
+
+{% block content %}
+  <table class="table">
+    <thead class="thead-inverse">
+      <tr>
+        <th>Section</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <a href="{% url 'param_lib' %}">Parameters</a>
+        </td>
+        <td>
+          <small class="text-muted d-block">Library of CEACOV model inputs and their derivations</small>
+        </td>
+      </tr>
+      <tr>
+        <td>Data Documentation</td>
+        <td>
+          <small class="text-muted d-block">Library of data sources used to derive input parameters</small>
+        </td>
+      </tr>
+      <tr>
+        <td>Projects</td>
+        <td>
+          <small class="text-muted d-block">Active and past projects utilizing the CEACOV model</small>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+{% endblock %}

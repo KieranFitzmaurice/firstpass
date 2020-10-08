@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Parameters - {{ block.super }}
+{% endblock %}
+
+{% block breadcrumb %}
+  <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+  <li class="breadcrumb-item active">Parameters</li>
+{% endblock %}
+
+{% block content %}
+  <table class="table">
+    <thead class="thead-inverse">
+      <tr>
+        <th>filepath</th>
+        <th>value</th>
+        <th>created by</th>
+        <th>created on</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for param in params %}
+        <tr>
+          <td>{{ param.input_filepath }}</td>
+          <td>{{ param.value}}</td>
+          <td>{{ param.created_by}}</td>
+          <td>{{ param.created_at}}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
