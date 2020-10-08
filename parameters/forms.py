@@ -4,5 +4,9 @@ from .models import Parameter, DataSource, Project
 class NewParameterForm(forms.ModelForm):
     class Meta:
         model = Parameter
-        fields = ['value','input_filepath','derivation_documentation','data_source','project'] 
+        fields = ['value','input_filepath','derivation_documentation','data_source','project']
 
+class NewDataSourceForm(forms.ModelForm):
+    class Meta:
+        model = DataSource
+        fields = '__all__'

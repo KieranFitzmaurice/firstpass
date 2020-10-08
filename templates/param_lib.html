@@ -10,13 +10,20 @@
 {% endblock %}
 
 {% block content %}
+<div class="mb-4">
+  <a href="{% url 'new_param' %}" class="btn btn-primary">Add Parameter</a>
+  <a href="{% url 'edit_param' %}" class="btn btn-dark">Apply Filter</a>
+</div>
+<div>
+</div>
   <table class="table">
     <thead class="thead-inverse">
       <tr>
-        <th>filepath</th>
-        <th>value</th>
-        <th>created by</th>
-        <th>created on</th>
+        <th style="width: 60%">Filepath</th>
+        <th style="width: 5%">Value</th>
+        <th style="width: 30%">Last modified</th>
+        <th style="width: 5%">Actions</th>
+        <th style="width: 5%"></th>
       </tr>
     </thead>
     <tbody>
@@ -24,8 +31,9 @@
         <tr>
           <td>{{ param.input_filepath }}</td>
           <td>{{ param.value}}</td>
-          <td>{{ param.created_by}}</td>
-          <td>{{ param.created_at}}</td>
+          <td>{{ param.created_at}} by {{param.created_by}}</td>
+          <td><a href="{% url 'edit_param' %}" class="btn btn-info">View</a></td>
+          <td><a href="{% url 'delete_param' %}" class="btn btn-danger">Edit / Delete</a></td>
         </tr>
       {% endfor %}
     </tbody>

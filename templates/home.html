@@ -10,6 +10,7 @@
       <tr>
         <th>Section</th>
         <th>Description</th>
+        <th>Number of Records</th>
       </tr>
     </thead>
     <tbody>
@@ -17,20 +18,32 @@
         <td>
           <a href="{% url 'param_lib' %}">Parameters</a>
         </td>
+
         <td>
-          <small class="text-muted d-block">Library of CEACOV model inputs and their derivations</small>
+          Library of CEACOV model inputs and their derivations
+        </td>
+        <td>
+          {{n_param}}
         </td>
       </tr>
       <tr>
-        <td>Data Documentation</td>
         <td>
-          <small class="text-muted d-block">Library of data sources used to derive input parameters</small>
+        <a href="{% url 'data_lib' %}">Data Sources</a>
+        </td>
+        <td>
+          Library of data sources used to derive model inputs
+        </td>
+        <td>
+          {{n_datasource}}
         </td>
       </tr>
       <tr>
-        <td>Projects</td>
+        <td>Input Files</td>
         <td>
-          <small class="text-muted d-block">Active and past projects utilizing the CEACOV model</small>
+          Library of parameter sets used in past and current analyses
+        </td>
+        <td>
+          {{n_project}}
         </td>
       </tr>
     </tbody>

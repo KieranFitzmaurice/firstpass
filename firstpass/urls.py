@@ -24,6 +24,12 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('parameters/',views.param_lib,name='param_lib'),
     path('parameters/new/',views.get_new_param,name='new_param'),
+    path('parameters/',views.edit_param,name='edit_param'),
+    path('parameters/',views.delete_param,name='delete_param'),
+    path('datasources/',views.data_lib,name='data_lib'),
+    path('datasources/new/',views.get_new_data,name='new_data'),
+    path('datasources/',views.edit_data,name='edit_data'),
+    path('datasources/',views.delete_data,name='delete_data')
 ]
 
 if settings.DEBUG:
