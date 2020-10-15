@@ -2,7 +2,7 @@
 
 {% load widget_tweaks %}
 
-{% block title %}Create a new parameter{% endblock %}
+{% block title %}Create a new data source{% endblock %}
 
 
 {% block breadcrumb %}
@@ -12,7 +12,7 @@
 {% endblock %}
 
 {% block content %}
-<form method="post" novalidate>
+<form method="post" enctype="multipart/form-data">
     {% csrf_token %}
 
     {% for field in form %}

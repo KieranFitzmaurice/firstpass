@@ -23,16 +23,21 @@ def edit_param(request):
     params = Parameter.objects.all()
     return render(request,'param_lib.html',{'params': params})
 
+def view_param(request,pk):
+    param = get_object_or_404(Parameter, pk=pk)
+    return render(request,'view_param.html',{'param':param})
+
 def get_new_param(request):
     user = User.objects.first()
     # if this is a POST request we need to process the form data
     if request.method == 'POST':
         # create a form instance and populate it with data from the request:
-        form = NewParameterForm(request.POST)
+        form = NewParameterForm(request.POST,request.FILES)
         # check whether it's valid:
         if form.is_valid():
             newparam = form.save(commit=False)
             newparam.created_by = user
+            newparam.modified_by = user
             newparam.save()
             return redirect('param_lib')
 
@@ -54,15 +59,21 @@ def edit_data(request):
     datasources = DataSource.objects.all()
     return render(request,'data_lib.html',{'datasources': datasources})
 
+def view_data(request,pk):
+    datasource = get_object_or_404(DataSource, pk=pk)
+    return render(request,'view_data.html',{'datasource':datasource})
+
 def get_new_data(request):
     user = User.objects.first()
     # if this is a POST request we need to process the form data
     if request.method == 'POST':
         # create a form instance and populate it with data from the request:
-        form = NewDataSourceForm(request.POST)
+        form = NewDataSourceForm(request.POST,request.FILES)
         # check whether it's valid:
         if form.is_valid():
             newdata = form.save(commit=False)
+            newdata.created_by = user
+            newdata.modified_by = user
             newdata.save()
             return redirect('data_lib')
 

@@ -11,29 +11,29 @@
 
 {% block content %}
 <div class="mb-4">
-  <a href="{% url 'new_param' %}" class="btn btn-primary">Add Parameter</a>
-  <a href="{% url 'edit_param' %}" class="btn btn-dark">Apply Filter</a>
+  <a href="{% url 'new_param' %}" class="btn btn-success">Add Parameter</a>
+  <a href="{% url 'edit_param' %}" class="btn btn-secondary">Apply Filter</a>
 </div>
 <div>
 </div>
   <table class="table">
     <thead class="thead-inverse">
       <tr>
-        <th style="width: 60%">Filepath</th>
+        <th style="width: 5%">Index</th>
+        <th style="width: 45%">Filepath</th>
         <th style="width: 5%">Value</th>
-        <th style="width: 30%">Last modified</th>
-        <th style="width: 5%">Actions</th>
+        <th style="width: 40%">Last modified</th>
         <th style="width: 5%"></th>
       </tr>
     </thead>
     <tbody>
       {% for param in params %}
         <tr>
+          <td>{{param.pk}}</td>
           <td>{{ param.input_filepath }}</td>
           <td>{{ param.value}}</td>
-          <td>{{ param.created_at}} by {{param.created_by}}</td>
-          <td><a href="{% url 'edit_param' %}" class="btn btn-info">View</a></td>
-          <td><a href="{% url 'delete_param' %}" class="btn btn-danger">Edit / Delete</a></td>
+          <td>{{ param.created_at}} by {{param.created_by.first_name}} {{param.created_by.last_name}}</td>
+          <td><a href="{% url 'view_param' param.pk %}" class="btn btn-info">View</a></td>
         </tr>
       {% endfor %}
     </tbody>

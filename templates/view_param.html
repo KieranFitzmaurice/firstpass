@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% load widget_tweaks %}
+
+{% block title %}View parameter{% endblock %}
+
+
+{% block breadcrumb %}
+  <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+  <li class="breadcrumb-item"><a href="{% url 'param_lib' %}">Parameters</a></li>
+  <li class="breadcrumb-item active">{{param.pk}}</li>
+{% endblock %}
+
+{% block content %}
+<dl class="row">
+  <dt class="col-sm-3">Filepath</dt>
+  <dd class="col-sm-9">{{param.input_filepath}}</dd>
+  <dt class="col-sm-3">Value</dt>
+  <dd class="col-sm-9">{{param.value}}</dd>
+  <dt class="col-sm-3">Created</dt>
+  <dd class="col-sm-9">{{ param.created_at}} by {{param.created_by.first_name}} {{param.created_by.last_name}}</dd>
+  <dt class="col-sm-3">Last modified</dt>
+  <dd class="col-sm-9">{{ param.modified_at}} by {{param.modified_by.first_name}} {{param.modified_by.last_name}}</dd>
+  <dt class="col-sm-3">Derivation documentation</dt>
+  {% if param.derivation_documentation %}
+  <dd class="col-sm-9"><a href="{{param.derivation_documentation.url}}">{{param.derivation_documentation.name}}</a></dd>
+  {% else %}
+  <dd class="col-sm-9">None</dd>
+  {% endif %}
+  <dt class="col-sm-3">Notes</dt>
+  <dd class="col-sm-9">{{ param.notes}}</dd>
+</dl>
+{% endblock %}

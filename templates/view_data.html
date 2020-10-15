@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% load widget_tweaks %}
+
+{% block title %}View data{% endblock %}
+
+
+{% block breadcrumb %}
+  <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+  <li class="breadcrumb-item"><a href="{% url 'data_lib' %}">Data</a></li>
+  <li class="breadcrumb-item active">{{datasource.pk}}</li>
+{% endblock %}
+
+{% block content %}
+<dl class="row">
+  <dt class="col-sm-3">Publication type</dt>
+  <dd class="col-sm-9">{{datasource.PubType}}</dd>
+  <dt class="col-sm-3">Author or publisher</dt>
+  {% if datasource.PubType == "Journal article" %}
+  <dd class="col-sm-9">{{datasource.Author}} et al.</dd>
+  {% elif datasource.PubType == "Pre-print" %}
+  <dd class="col-sm-9">{{datasource.Author}} et al.</dd>
+  {% else %}
+  <dd class="col-sm-9">{{datasource.Author}}</dd>
+  {% endif %}
+  <dt class="col-sm-3">Title</dt>
+  <dd class="col-sm-9">{{datasource.Title}}</dd>
+  <dt class="col-sm-3">Date published</dt>
+  <dd class="col-sm-9">{{datasource.Date_published}}</dd>
+  <dt class="col-sm-3">Country / Setting</dt>
+  <dd class="col-sm-9">{{datasource.Country}}</dd>
+  <dt class="col-sm-3">URL</dt>
+  {% if datasource.URL %}
+  <dd class="col-sm-9"><a href="{{datasource.URL}}">{{datasource.URL}}</a></dd>
+  {% else %}
+  <dd class="col-sm-9">None</dd>
+  {% endif %}
+  <dt class="col-sm-3">DOI</dt>
+  {% if datasource.DOI %}
+  <dd class="col-sm-9"><a href="https://doi.org/{{datasource.DOI}}">{{datasource.DOI}}</a></dd>
+  {% else %}
+  <dd class="col-sm-9">None</dd>
+  {% endif %}
+  <dt class="col-sm-3">PMID</dt>
+  {% if datasource.PMID %}
+  <dd class="col-sm-9"><a href="https://pubmed.ncbi.nlm.nih.gov/{{datasource.PMID}}">{{datasource.PMID}}</a></dd>
+  {% else %}
+  <dd class="col-sm-9">None</dd>
+  {% endif %}
+  <dt class="col-sm-3">Saved copy</dt>
+  {% if datasource.hard_copy %}
+  <dd class="col-sm-9"><a href="{{datasource.hard_copy.url}}">{{datasource.hard_copy.name}}</a></dd>
+  {% else %}
+  <dd class="col-sm-9">None</dd>
+  {% endif %}
+  <dt class="col-sm-3">Created</dt>
+  <dd class="col-sm-9">{{ datasource.created_at}} by {{datasource.created_by.first_name}} {{datasource.created_by.last_name}}</dd>
+  <dt class="col-sm-3">Last modified</dt>
+  <dd class="col-sm-9">{{ datasource.modified_at}} by {{datasource.modified_by.first_name}} {{datasource.modified_by.last_name}}</dd>
+  <dt class="col-sm-3">Notes</dt>
+  <dd class="col-sm-9">{{ datasource.notes}}</dd>
+</dl>
+{% endblock %}

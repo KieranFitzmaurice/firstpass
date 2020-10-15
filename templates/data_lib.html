@@ -11,31 +11,35 @@
 
 {% block content %}
 <div class="mb-4">
-  <a href="{% url 'new_data' %}" class="btn btn-primary">Add Data</a>
-  <a href="{% url 'edit_data' %}" class="btn btn-dark">Apply Filter</a>
+  <a href="{% url 'new_data' %}" class="btn btn-success">Add Data</a>
+  <a href="{% url 'edit_data' %}" class="btn btn-secondary">Apply Filter</a>
 </div>
 <div>
 </div>
   <table class="table">
     <thead class="thead-inverse">
       <tr>
+        <th style="width: 5%">Index</th>
         <th style="width: 20%">Author</th>
-        <th style="width: 60%">Title</th>
+        <th style="width: 55%">Title</th>
         <th style="width: 15%">Date Published</th>
-        <th style="width: 5%">Actions</th>
         <th style="width: 5%"></th>
       </tr>
     </thead>
     <tbody>
       {% for datasource in datasources %}
         <tr>
+          <td>{{datasource.pk}}</td>
+          {% if datasource.PubType == "Journal article" %}
           <td>{{ datasource.Author }} et al.</td>
+          {% elif datasource.PubType == "Pre-print" %}
+          <td>{{ datasource.Author }} et al.</td>
+          {% else %}
+          <td>{{ datasource.Author }}</td>
+          {% endif %}
           <td>{{ datasource.Title}}</td>
-          <td>{{ datasource.DatePublished}}</td>
-          <td>
-            <a href="{% url 'edit_data' %}" class="btn btn-info">View</a></td>
-          <td><a href="{% url 'delete_data' %}" class="btn btn-danger">Edit / Delete</a>
-          </td>
+          <td>{{datasource.Date_published}}</td>
+          <td><a href="{% url 'view_data' datasource.pk %}" class="btn btn-info">View</a></td>
         </tr>
       {% endfor %}
     </tbody>
