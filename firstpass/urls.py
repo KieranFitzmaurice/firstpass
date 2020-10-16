@@ -30,7 +30,7 @@ urlpatterns = [
     path('datasources/',views.data_lib,name='data_lib'),
     path('datasources/new/',views.get_new_data,name='new_data'),
     path('datasources/<int:pk>/',views.view_data,name='view_data'),
-    path('datasources/',views.edit_data,name='edit_data'),
+    path('datasources/<int:pk>/edit/',views.edit_data,name='edit_data'),
     path('datasources/',views.delete_data,name='delete_data')
 ]
 

@@ -7,11 +7,16 @@
 
 {% block breadcrumb %}
   <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
-  <li class="breadcrumb-item"><a href="{% url 'data_lib' %}">Data</a></li>
+  <li class="breadcrumb-item"><a href="{% url 'data_lib' %}">Data Sources</a></li>
   <li class="breadcrumb-item active">{{datasource.pk}}</li>
 {% endblock %}
 
 {% block content %}
+<div class="mb-4">
+  <h1>Attributes
+  <a href="{% url 'edit_data' datasource.pk %}" class="btn btn-warning">Edit</a>
+  <h1>
+</div>
 <dl class="row">
   <dt class="col-sm-3">Publication type</dt>
   <dd class="col-sm-9">{{datasource.PubType}}</dd>
@@ -49,15 +54,58 @@
   {% endif %}
   <dt class="col-sm-3">Saved copy</dt>
   {% if datasource.hard_copy %}
-  <dd class="col-sm-9"><a href="{{datasource.hard_copy.url}}">{{datasource.hard_copy.name}}</a></dd>
+  <dd class="col-sm-9"><a href="{{datasource.hard_copy.url}}">{{datasource.hard_copy.name|slice:"11:"}}</a></dd>
   {% else %}
   <dd class="col-sm-9">None</dd>
   {% endif %}
   <dt class="col-sm-3">Created</dt>
-  <dd class="col-sm-9">{{ datasource.created_at}} by {{datasource.created_by.first_name}} {{datasource.created_by.last_name}}</dd>
+  <dd class="col-sm-9">{{datasource.created_at}} by {{datasource.created_by.first_name}} {{datasource.created_by.last_name}}</dd>
   <dt class="col-sm-3">Last modified</dt>
-  <dd class="col-sm-9">{{ datasource.modified_at}} by {{datasource.modified_by.first_name}} {{datasource.modified_by.last_name}}</dd>
+  <dd class="col-sm-9">{{datasource.modified_at}} by {{datasource.modified_by.first_name}} {{datasource.modified_by.last_name}}</dd>
   <dt class="col-sm-3">Notes</dt>
-  <dd class="col-sm-9">{{ datasource.notes}}</dd>
+  {% if datasource.notes %}
+  <dd class="col-sm-9">{{datasource.notes}}</dd>
+  {% else %}
+  <dd class="col-sm-9">None</dd>
+  {% endif %}
 </dl>
+<div class="mb-4">
+  <h1>Parameters
+  <a href="{% url 'new_data' %}" class="btn btn-success">Add</a>
+  <h1>
+</div>
+{% if datasource.parameters %}
+  <table class="table">
+    <thead class="thead-inverse">
+      <tr>
+        <th style="width: 5%">Index</th>
+        <th style="width: 40%">Filepath</th>
+        <th style="width: 5%">Value</th>
+        <th style="width: 40%">Last modified</th>
+        <th style="width: 5%">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for param in datasource.parameters.all %}
+        <tr>
+          <td>{{param.pk}}</td>
+          <td>{{ param.input_filepath }}</td>
+          <td>{{ param.value}}</td>
+          <td>{{ param.created_at}} by {{param.created_by.first_name}} {{param.created_by.last_name}}</td>
+          <td>
+            <div class="btn-group">
+            <a href="{% url 'view_param' param.pk %}" class="btn btn-primary">View</a>
+            <a href="{% url 'view_param' param.pk %}" class="btn btn-secondary">Unlink</a>
+            </div>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endif %}
+<div class="mb-4">
+  <h1>Input Files
+  <a href="{% url 'new_data' %}" class="btn btn-success">Add</a>
+  <h1>
+</div>
 {% endblock %}

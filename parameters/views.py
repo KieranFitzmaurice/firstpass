@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse, Http404, HttpResponseRedirect
 from .models import Project, Parameter, DataSource
 from .forms import NewParameterForm, NewDataSourceForm
+from django.utils import timezone
 
 # Create your views here.
 def home(request):
@@ -55,10 +56,6 @@ def delete_data(request):
     datasources = DataSource.objects.all()
     return render(request,'data_lib.html',{'datasources': datasources})
 
-def edit_data(request):
-    datasources = DataSource.objects.all()
-    return render(request,'data_lib.html',{'datasources': datasources})
-
 def view_data(request,pk):
     datasource = get_object_or_404(DataSource, pk=pk)
     return render(request,'view_data.html',{'datasource':datasource})
@@ -73,7 +70,9 @@ def get_new_data(request):
         if form.is_valid():
             newdata = form.save(commit=False)
             newdata.created_by = user
+            newdata.created_at = timezone.now()
             newdata.modified_by = user
+            newdata.modified_at = timezone.now()
             newdata.save()
             return redirect('data_lib')
 
@@ -82,3 +81,24 @@ def get_new_data(request):
         form = NewDataSourceForm()
 
     return render(request, 'newdata.html', {'form': form})
+
+def edit_data(request,pk):
+    user = User.objects.first()
+    datasource = get_object_or_404(DataSource, pk=pk)
+    # if this is a POST request we need to process the form data
+    if request.method == 'POST':
+        # create a form instance and populate it with data from the request:
+        form = NewDataSourceForm(request.POST,request.FILES,instance=datasource)
+        # check whether it's valid:
+        if form.is_valid():
+            newdata = form.save(commit=False)
+            newdata.modified_by = user
+            newdata.modified_at = timezone.now()
+            newdata.save()
+            return redirect('view_data', pk=pk)
+
+    # if a GET (or any other method) we'll create a blank form
+    else:
+        form = NewDataSourceForm(instance=datasource)
+
+    return render(request, 'editdata.html', {'form': form,'datasource': datasource})

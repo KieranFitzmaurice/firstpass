@@ -20,7 +20,7 @@ class Parameter(models.Model):
 
 class DataSource(models.Model):
     COUNTRY_CHOICES = [('United States','United States'),('South Africa','South Africa'),('Uganda','Uganda'),('Zimbabwe','Zimbabwe')]
-    PUBTYPE_CHOICES = [('Journal article','Journal article'),('Pre-print','Pre-print'),('WEB','Website'),('REP','Government report'),('NGO','NGO report'),('OTH','Other')]
+    PUBTYPE_CHOICES = [('Journal article','Journal article'),('Pre-print','Pre-print'),('Website','Website'),('Government report','Government report'),('NGO report','NGO report'),('Other','Other')]
     PubType = models.CharField(max_length=255,verbose_name="Publication type",choices=PUBTYPE_CHOICES)
     Author = models.CharField(max_length=255,help_text="surname of lead author (if article)",verbose_name="Author or publisher")
     Title = models.CharField(max_length=255,verbose_name="Title")
@@ -39,7 +39,7 @@ class DataSource(models.Model):
     modified_by = models.ForeignKey(User,related_name='datasource_modifier',on_delete=models.PROTECT)
 
     def __str__(self):
-        if self.PubType in ["ART","PRE"]:
+        if self.PubType in ["Journal article","Pre-print"]:
             return self.Author+' et al. - '+self.Title
         else:
             return self.Author+' - '+self.Title

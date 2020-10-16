@@ -23,7 +23,7 @@
   <dd class="col-sm-9">{{ param.modified_at}} by {{param.modified_by.first_name}} {{param.modified_by.last_name}}</dd>
   <dt class="col-sm-3">Derivation documentation</dt>
   {% if param.derivation_documentation %}
-  <dd class="col-sm-9"><a href="{{param.derivation_documentation.url}}">{{param.derivation_documentation.name}}</a></dd>
+  <dd class="col-sm-9"><a href="{{param.derivation_documentation.url}}">{{param.derivation_documentation.name|slice:"12:"}}</a></dd>
   {% else %}
   <dd class="col-sm-9">None</dd>
   {% endif %}
