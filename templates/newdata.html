@@ -2,7 +2,9 @@
 
 {% load widget_tweaks %}
 
-{% block title %}Create a new data source{% endblock %}
+{% block title %}
+Create a new data source - {{ block.super }}
+{% endblock %}
 
 
 {% block breadcrumb %}

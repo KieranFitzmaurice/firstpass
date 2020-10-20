@@ -2,7 +2,9 @@
 
 {% load widget_tweaks %}
 
-{% block title %}View data{% endblock %}
+{% block title %}
+View data - {{ block.super }}
+{% endblock %}
 
 
 {% block breadcrumb %}
@@ -78,7 +80,7 @@
   <table class="table">
     <thead class="thead-inverse">
       <tr>
-        <th style="width: 5%">Index</th>
+        <th style="width: 5%">#</th>
         <th style="width: 40%">Filepath</th>
         <th style="width: 5%">Value</th>
         <th style="width: 40%">Last modified</th>
@@ -88,7 +90,7 @@
     <tbody>
       {% for param in datasource.parameters.all %}
         <tr>
-          <td>{{param.pk}}</td>
+          <td><b>{{param.pk}}</b></td>
           <td>{{ param.input_filepath }}</td>
           <td>{{ param.value}}</td>
           <td>{{ param.created_at}} by {{param.created_by.first_name}} {{param.created_by.last_name}}</td>
