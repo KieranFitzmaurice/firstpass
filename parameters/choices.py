@@ -1,7 +1,8 @@
 # User defined module to store options for charfield choices
 
 def country_options():
-    choices = [('Afghanistan','Afghanistan'),
+    choices = [('None','None'),
+    ('Afghanistan','Afghanistan'),
     ('Åland Islands','Åland Islands'),
     ('Albania','Albania'),
     ('Algeria','Algeria'),
@@ -253,7 +254,8 @@ def country_options():
     return choices
 
 def get_short_code(country_name):
-    code_dict = {'Afghanistan':'af',
+    code_dict = {'None':'globe',
+    'Afghanistan':'af',
     'Åland Islands':'ax',
     'Albania':'al',
     'Algeria':'dz',

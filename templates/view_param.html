@@ -11,10 +11,13 @@
 {% endblock %}
 
 {% block content %}
+<div class="mb-5">
+  <h1>Parameter #{{param.pk}}<h1>
+</div>
 <div class="mb-4">
-  <h1>Attributes
+  <h2>Attributes
   <a href="{% url 'edit_param' param.pk %}" class="btn btn-warning">Edit</a>
-  <h1>
+  <h2>
 </div>
 <dl class="row">
   <dt class="col-sm-3">Filepath</dt>
@@ -39,12 +42,12 @@
   {% endif %}
 </dl>
 <div class="mb-4">
-  <h1>Data Sources
+  <h2>Data Sources
     <div class="btn-group">
     <a href="{% url 'param_new_data' param.pk %}" class="btn btn-success">Add New</a>
-    <a href="{% url 'view_param' param.pk %}" class="btn btn-info">Add From Database</a>
+    <a href="{% url 'param_add_data' param.pk %}" class="btn btn-info">Add From Database</a>
     </div>
-  <h1>
+  <h2>
 </div>
 {% if param.data_sources %}
   <table class="table">
@@ -104,11 +107,11 @@
   </table>
 {% endif %}
 <div class="mb-4">
-  <h1>Input Files
+  <h2>Input Files
     <div class="btn-group">
     <a href="{% url 'view_param' param.pk %}" class="btn btn-success">Add New</a>
     <a href="{% url 'view_param' param.pk %}" class="btn btn-info">Add From Database</a>
     </div>
-  <h1>
+  <h2>
 </div>
 {% endblock %}

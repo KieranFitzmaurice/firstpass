@@ -14,10 +14,13 @@ View data - {{ block.super }}
 {% endblock %}
 
 {% block content %}
+<div class="mb-5">
+  <h1>Data Source #{{datasource.pk}}<h1>
+</div>
 <div class="mb-4">
-  <h1>Attributes
+  <h2>Attributes
   <a href="{% url 'edit_data' datasource.pk %}" class="btn btn-warning">Edit</a>
-  <h1>
+  <h2>
 </div>
 <dl class="row">
   <dt class="col-sm-3">Publication type</dt>
@@ -72,12 +75,12 @@ View data - {{ block.super }}
   {% endif %}
 </dl>
 <div class="mb-4">
-  <h1>Parameters
+  <h2>Parameters
     <div class="btn-group">
     <a href="{% url 'data_new_param' datasource.pk %}" class="btn btn-success">Add New</a>
-    <a href="{% url 'view_data' datasource.pk %}" class="btn btn-info">Add From Database</a>
+    <a href="{% url 'data_add_param' datasource.pk %}" class="btn btn-info">Add From Database</a>
     </div>
-  <h1>
+  <h2>
 </div>
 {% if datasource.parameters %}
   <table class="table">
@@ -96,7 +99,7 @@ View data - {{ block.super }}
           <td><b>{{param.pk}}</b></td>
           <td>{{ param.input_filepath }}</td>
           <td>{{ param.value}}</td>
-          <td>{{ param.created_at}} by {{param.created_by.first_name}} {{param.created_by.last_name}}</td>
+          <td>{{ param.modified_at}} by {{param.modified_by.first_name}} {{param.modified_by.last_name}}</td>
           <td>
             <div class="btn-group">
             <a href="{% url 'view_param' param.pk %}" class="btn btn-primary">View</a>
@@ -129,11 +132,11 @@ View data - {{ block.super }}
   </table>
 {% endif %}
 <div class="mb-4">
-  <h1>Input Files
+  <h2>Input Files
     <div class="btn-group">
     <a href="{% url 'view_data' datasource.pk %}" class="btn btn-success">Add New</a>
     <a href="{% url 'view_data' datasource.pk %}" class="btn btn-info">Add From Database</a>
     </div>
-  <h1>
+  <h2>
 </div>
 {% endblock %}

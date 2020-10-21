@@ -41,6 +41,25 @@ def edit_param(request,pk):
 
     return render(request, 'editparam.html', {'form': form,'param': param})
 
+def param_add_data(request,param_pk):
+    param = get_object_or_404(Parameter,pk=param_pk)
+    datasources = DataSource.objects.exclude(pk__in=param.data_sources.all().values_list('pk', flat=True))
+    return render(request,'param_add_data.html',{'datasources': datasources,'param': param})
+
+def param_link_data(request,param_pk,data_pk):
+    user = User.objects.first()
+    param=get_object_or_404(Parameter,pk=param_pk)
+    datasource=get_object_or_404(DataSource,pk=data_pk)
+    datasource.parameters.add(param)
+    param.data_sources.add(datasource)
+    datasource.modified_by = user
+    datasource.modified_at = timezone.now()
+    param.modified_by = user
+    param.modified_at = timezone.now()
+    datasource.save()
+    param.save()
+    return redirect('param_add_data', param_pk=param_pk)
+
 def unlink_data_from_param(request,param_pk,data_pk):
     user = User.objects.first()
     datasource = get_object_or_404(DataSource,pk=data_pk)
@@ -196,6 +215,25 @@ def edit_data(request,pk):
         form = NewDataSourceForm(instance=datasource)
 
     return render(request, 'editdata.html', {'form': form,'datasource': datasource})
+
+def data_add_param(request,data_pk):
+    datasource = get_object_or_404(DataSource,pk=data_pk)
+    params = Parameter.objects.exclude(pk__in=datasource.parameters.all().values_list('pk', flat=True))
+    return render(request,'data_add_param.html',{'params': params,'datasource': datasource})
+
+def data_link_param(request,data_pk,param_pk):
+    user = User.objects.first()
+    param=get_object_or_404(Parameter,pk=param_pk)
+    datasource=get_object_or_404(DataSource,pk=data_pk)
+    datasource.parameters.add(param)
+    param.data_sources.add(datasource)
+    datasource.modified_by = user
+    datasource.modified_at = timezone.now()
+    param.modified_by = user
+    param.modified_at = timezone.now()
+    datasource.save()
+    param.save()
+    return redirect('data_add_param', data_pk=data_pk)
 
 def unlink_param_from_data(request,data_pk,param_pk):
     user = User.objects.first()
