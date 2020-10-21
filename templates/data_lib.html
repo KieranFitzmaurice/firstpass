@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}
 Data - {{ block.super }}
@@ -20,9 +21,10 @@ Data - {{ block.super }}
     <thead class="thead-inverse">
       <tr>
         <th style="width: 5%">#</th>
-        <th style="width: 20%">Author</th>
-        <th style="width: 50%">Title</th>
-        <th style="width: 20%">Date Published</th>
+        <th style="width: 15%">Author</th>
+        <th style="width: 52%">Title</th>
+        <th style="width: 3%">Setting</th>
+        <th style="width: 20%">Published</th>
         <th style="width: 5%">Actions</th>
       </tr>
     </thead>
@@ -38,6 +40,7 @@ Data - {{ block.super }}
           <td>{{ datasource.Author }}</td>
           {% endif %}
           <td>{{ datasource.Title}}</td>
+          <td><b>&ensp;</b><img src="{% static 'flags/4x3/' %}{{datasource.CountryCode}}.svg" class="rounded" alt="" height=23px width=auto></td>
           <td>{{datasource.Date_published}}</td>
           <td><a href="{% url 'view_data' datasource.pk %}" class="btn btn-primary">View</a></td>
         </tr>

@@ -25,12 +25,16 @@ urlpatterns = [
     path('parameters/',views.param_lib,name='param_lib'),
     path('parameters/new/',views.get_new_param,name='new_param'),
     path('parameters/<int:pk>/',views.view_param,name='view_param'),
-    path('parameters/',views.edit_param,name='edit_param'),
+    path('parameters/<int:param_pk>/newdata/',views.param_new_data,name='param_new_data'),
+    path('parameters/<int:pk>/edit/',views.edit_param,name='edit_param'),
+    path('parameters/<int:param_pk>/unlink/<int:data_pk>/',views.unlink_data_from_param,name='unlink_data_from_param'),
     path('parameters/',views.delete_param,name='delete_param'),
     path('datasources/',views.data_lib,name='data_lib'),
     path('datasources/new/',views.get_new_data,name='new_data'),
     path('datasources/<int:pk>/',views.view_data,name='view_data'),
+    path('datasources/<int:data_pk>/newparam/',views.data_new_param,name='data_new_param'),
     path('datasources/<int:pk>/edit/',views.edit_data,name='edit_data'),
+    path('datasources/<int:data_pk>/unlink/<int:param_pk>/',views.unlink_param_from_data,name='unlink_param_from_data'),
     path('datasources/',views.delete_data,name='delete_data')
 ]
 

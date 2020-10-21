@@ -4,6 +4,7 @@ from django.http import HttpResponse, Http404, HttpResponseRedirect
 from .models import Project, Parameter, DataSource
 from .forms import NewParameterForm, NewDataSourceForm
 from django.utils import timezone
+from .choices import get_short_code
 
 # Create your views here.
 def home(request):
@@ -20,9 +21,39 @@ def delete_param(request):
     params = Parameter.objects.all()
     return render(request,'param_lib.html',{'params': params})
 
-def edit_param(request):
-    params = Parameter.objects.all()
-    return render(request,'param_lib.html',{'params': params})
+def edit_param(request,pk):
+    user = User.objects.first()
+    param = get_object_or_404(Parameter, pk=pk)
+    # if this is a POST request we need to process the form data
+    if request.method == 'POST':
+        # create a form instance and populate it with data from the request:
+        form = NewParameterForm(request.POST,request.FILES,instance=param)
+        # check whether it's valid:
+        if form.is_valid():
+            newdata = form.save(commit=False)
+            newdata.modified_by = user
+            newdata.modified_at = timezone.now()
+            newdata.save()
+            return redirect('view_param', pk=pk)
+        # if a GET (or any other method) we'll create a blank form
+    else:
+        form = NewParameterForm(instance=param)
+
+    return render(request, 'editparam.html', {'form': form,'param': param})
+
+def unlink_data_from_param(request,param_pk,data_pk):
+    user = User.objects.first()
+    datasource = get_object_or_404(DataSource,pk=data_pk)
+    param = get_object_or_404(Parameter,pk=param_pk)
+    datasource.parameters.remove(param)
+    param.data_sources.remove(datasource)
+    datasource.modified_by = user
+    datasource.modified_at = timezone.now()
+    param.modified_by = user
+    param.modified_at = timezone.now()
+    datasource.save()
+    param.save()
+    return redirect('view_param', pk=param_pk)
 
 def view_param(request,pk):
     param = get_object_or_404(Parameter, pk=pk)
@@ -38,9 +69,40 @@ def get_new_param(request):
         if form.is_valid():
             newparam = form.save(commit=False)
             newparam.created_by = user
+            newparam.created_at = timezone.now()
             newparam.modified_by = user
+            newparam.modified_at = user
             newparam.save()
-            return redirect('param_lib')
+            return redirect('view_param',pk=newparam.pk)
+
+    # if a GET (or any other method) we'll create a blank form
+    else:
+        form = NewParameterForm()
+
+    return render(request, 'newparameter.html', {'form': form})
+
+def data_new_param(request,data_pk):
+    user = User.objects.first()
+    datasource = get_object_or_404(DataSource, pk=data_pk)
+    # if this is a POST request we need to process the form data
+    if request.method == 'POST':
+        # create a form instance and populate it with data from the request:
+        form = NewParameterForm(request.POST,request.FILES)
+        # check whether it's valid:
+        if form.is_valid():
+            newparam = form.save(commit=False)
+            newparam.created_by = user
+            newparam.created_at = timezone.now()
+            newparam.modified_by = user
+            newparam.modified_at = timezone.now()
+            newparam.save()
+            datasource.parameters.add(newparam)
+            newparam.data_sources.add(datasource)
+            datasource.modified_by = user
+            datasource.modified_at = timezone.now()
+            datasource.save()
+            newparam.save()
+            return redirect('view_data',pk=data_pk)
 
     # if a GET (or any other method) we'll create a blank form
     else:
@@ -73,8 +135,39 @@ def get_new_data(request):
             newdata.created_at = timezone.now()
             newdata.modified_by = user
             newdata.modified_at = timezone.now()
+            newdata.CountryCode = get_short_code(newdata.Country)
             newdata.save()
-            return redirect('data_lib')
+            return redirect('view_data',pk=newdata.pk)
+
+    # if a GET (or any other method) we'll create a blank form
+    else:
+        form = NewDataSourceForm()
+
+    return render(request, 'newdata.html', {'form': form})
+
+def param_new_data(request,param_pk):
+    user = User.objects.first()
+    param = get_object_or_404(Parameter, pk=param_pk)
+    # if this is a POST request we need to process the form data
+    if request.method == 'POST':
+        # create a form instance and populate it with data from the request:
+        form = NewDataSourceForm(request.POST,request.FILES)
+        # check whether it's valid:
+        if form.is_valid():
+            newdata = form.save(commit=False)
+            newdata.created_by = user
+            newdata.created_at = timezone.now()
+            newdata.modified_by = user
+            newdata.modified_at = timezone.now()
+            newdata.CountryCode = get_short_code(newdata.Country)
+            newdata.save()
+            newdata.parameters.add(param)
+            param.data_sources.add(newdata)
+            param.modified_by = user
+            param.modified_at = timezone.now()
+            param.save()
+            newdata.save()
+            return redirect('view_param',pk=param_pk)
 
     # if a GET (or any other method) we'll create a blank form
     else:
@@ -94,6 +187,7 @@ def edit_data(request,pk):
             newdata = form.save(commit=False)
             newdata.modified_by = user
             newdata.modified_at = timezone.now()
+            newdata.CountryCode = get_short_code(newdata.Country)
             newdata.save()
             return redirect('view_data', pk=pk)
 
@@ -102,3 +196,17 @@ def edit_data(request,pk):
         form = NewDataSourceForm(instance=datasource)
 
     return render(request, 'editdata.html', {'form': form,'datasource': datasource})
+
+def unlink_param_from_data(request,data_pk,param_pk):
+    user = User.objects.first()
+    datasource = get_object_or_404(DataSource,pk=data_pk)
+    param = get_object_or_404(Parameter,pk=param_pk)
+    datasource.parameters.remove(param)
+    param.data_sources.remove(datasource)
+    datasource.modified_by = user
+    datasource.modified_at = timezone.now()
+    param.modified_by = user
+    param.modified_at = timezone.now()
+    datasource.save()
+    param.save()
+    return redirect('view_data', pk=data_pk)

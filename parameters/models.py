@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from .choices import country_options, publication_options
 
 # Create your models here.
 
@@ -19,13 +20,14 @@ class Parameter(models.Model):
         return self.input_filepath
 
 class DataSource(models.Model):
-    COUNTRY_CHOICES = [('United States','United States'),('South Africa','South Africa'),('Uganda','Uganda'),('Zimbabwe','Zimbabwe')]
-    PUBTYPE_CHOICES = [('Journal article','Journal article'),('Pre-print','Pre-print'),('Website','Website'),('Government report','Government report'),('NGO report','NGO report'),('Other','Other')]
+    COUNTRY_CHOICES = country_options()
+    PUBTYPE_CHOICES = publication_options()
     PubType = models.CharField(max_length=255,verbose_name="Publication type",choices=PUBTYPE_CHOICES)
     Author = models.CharField(max_length=255,help_text="surname of lead author (if article)",verbose_name="Author or publisher")
     Title = models.CharField(max_length=255,verbose_name="Title")
     Date_published = models.DateField(blank=True,verbose_name="Date published",help_text="yyyy-mm-dd")
     Country = models.CharField(max_length=255,verbose_name="Country / Setting",choices=COUNTRY_CHOICES,blank=True)
+    CountryCode = models.CharField(max_length=2,blank=True)
     URL = models.URLField(blank=True,verbose_name="URL")
     DOI = models.CharField(max_length=255,blank=True)
     PMID = models.CharField(max_length=255,blank=True)

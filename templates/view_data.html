@@ -73,7 +73,10 @@ View data - {{ block.super }}
 </dl>
 <div class="mb-4">
   <h1>Parameters
-  <a href="{% url 'new_data' %}" class="btn btn-success">Add</a>
+    <div class="btn-group">
+    <a href="{% url 'data_new_param' datasource.pk %}" class="btn btn-success">Add New</a>
+    <a href="{% url 'view_data' datasource.pk %}" class="btn btn-info">Add From Database</a>
+    </div>
   <h1>
 </div>
 {% if datasource.parameters %}
@@ -97,7 +100,27 @@ View data - {{ block.super }}
           <td>
             <div class="btn-group">
             <a href="{% url 'view_param' param.pk %}" class="btn btn-primary">View</a>
-            <a href="{% url 'view_param' param.pk %}" class="btn btn-secondary">Unlink</a>
+            <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#Modal{{param.pk}}">Unlink</button>
+            </div>
+            <div class="modal fade" id="Modal{{param.pk}}">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <!-- Modal Header -->
+                  <div class="modal-header">
+                    <h4 class="modal-title">Are you sure?</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  </div>
+                  <!-- Modal body -->
+                  <div class="modal-body">
+                    Do you wish to unlink  <b>parameter #{{param.pk}}</b> and <b>data source #{{datasource.pk}}</b>? Both objects will remain intact, but will no longer be connected in the database.
+                  </div>
+                  <!-- Modal footer -->
+                  <div class="modal-footer">
+                    <a href="{% url 'unlink_param_from_data' datasource.pk param.pk %}" class="btn btn-danger">Unlink</a>
+                    <!-- <button type="button" class="btn btn-danger" data-dismiss="modal">Unlink</button> -->
+                  </div>
+                </div>
+              </div>
             </div>
           </td>
         </tr>
@@ -107,7 +130,10 @@ View data - {{ block.super }}
 {% endif %}
 <div class="mb-4">
   <h1>Input Files
-  <a href="{% url 'new_data' %}" class="btn btn-success">Add</a>
+    <div class="btn-group">
+    <a href="{% url 'view_data' datasource.pk %}" class="btn btn-success">Add New</a>
+    <a href="{% url 'view_data' datasource.pk %}" class="btn btn-info">Add From Database</a>
+    </div>
   <h1>
 </div>
 {% endblock %}
