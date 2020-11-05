@@ -1,11 +1,14 @@
 from django.db import models
 from django.contrib.auth.models import User
-from .choices import country_options, publication_options
+from .choices import country_options, publication_options, parameter_options, status_options
 
 # Create your models here.
 
 class Parameter(models.Model):
-    value = models.FloatField()
+    PARAMTYPE_CHOICES = parameter_options()
+    STATUS_CHOICES = status_options()
+    value = models.CharField(max_length=255)
+    type = models.CharField(max_length=255,verbose_name="Type",choices=PARAMTYPE_CHOICES)
     input_filepath = models.CharField(max_length=255)
     created_at = models.DateTimeField(auto_now_add=True)
     created_by = models.ForeignKey(User,related_name='param_creator',on_delete=models.PROTECT)
@@ -14,6 +17,7 @@ class Parameter(models.Model):
     derivation_documentation = models.FileField(upload_to='derivations/',blank=True)
     data_sources = models.ManyToManyField('DataSource',related_name='param_data',blank=True)
     projects = models.ManyToManyField('Project',related_name='param_project',blank=True)
+    status = models.CharField(max_length=225,verbose_name="Status",choices=STATUS_CHOICES,default="Currently in use")
     notes = models.TextField(blank=True)
 
     def __str__(self):

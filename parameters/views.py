@@ -5,6 +5,7 @@ from .models import Project, Parameter, DataSource
 from .forms import NewParameterForm, NewDataSourceForm
 from django.utils import timezone
 from .choices import get_short_code
+from .filters import ParameterFilter, DataSourceFilter
 
 # Create your views here.
 def home(request):
@@ -131,7 +132,8 @@ def data_new_param(request,data_pk):
 
 def data_lib(request):
     datasources = DataSource.objects.all()
-    return render(request,'data_lib.html',{'datasources': datasources})
+    datafilter = DataSourceFilter(request.GET, queryset=datasources)
+    return render(request,'data_lib.html',{'datafilter':datafilter})
 
 def delete_data(request):
     datasources = DataSource.objects.all()

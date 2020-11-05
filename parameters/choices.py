@@ -518,3 +518,37 @@ def publication_options():
     ('NGO report','NGO report'),
     ('Other','Other')]
     return choices
+
+def parameter_options():
+    choices = [('Probability','Probability'),
+               ('Rate','Rate'),
+               ('Cost','Cost'),
+               ('Numeric value','Numeric value'),
+               ('Integer value','Integer value'),
+               ('Boolean value','Boolean value'),
+               ('Numeric list','Numeric list'),
+               ('Integer list','Integer list'),
+               ('Boolean list','Boolean list')]
+    return choices
+
+def parameter_pretty_options():
+    choices = [['Common data types',
+    [('Probability','Probability'),
+    ('Rate','Rate'),
+    ('Cost','Cost')]],
+    ['General data types',
+    [('Numeric value','Numeric value'),
+    ('Integer value','Integer value'),
+    ('Boolean value','Boolean value')]],
+    ['Vector data types',
+    [('Numeric list','Numeric list'),
+    ('Integer list','Integer list'),
+    ('Boolean list','Boolean list')]]]
+
+    return choices
+
+def status_options():
+    choices = [('Currently in use','Currently in use'),
+               ('Flagged for review','Flagged for review'),
+               ('Outdated','Outdated')]
+    return choices

@@ -24,10 +24,14 @@
   <dd class="col-sm-9">{{param.input_filepath}}</dd>
   <dt class="col-sm-3">Value</dt>
   <dd class="col-sm-9">{{param.value}}</dd>
+  <dt class="col-sm-3">Type</dt>
+  <dd class="col-sm-9">{{param.type}}</dd>
   <dt class="col-sm-3">Created</dt>
   <dd class="col-sm-9">{{ param.created_at}} by {{param.created_by.first_name}} {{param.created_by.last_name}}</dd>
   <dt class="col-sm-3">Last modified</dt>
   <dd class="col-sm-9">{{ param.modified_at}} by {{param.modified_by.first_name}} {{param.modified_by.last_name}}</dd>
+  <dt class="col-sm-3">Status</dt>
+  <dd class="col-sm-9">{{param.status}}</dd>
   <dt class="col-sm-3">Derivation documentation</dt>
   {% if param.derivation_documentation %}
   <dd class="col-sm-9"><a href="{{param.derivation_documentation.url}}">{{param.derivation_documentation.name|slice:"12:"}}</a></dd>
