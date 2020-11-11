@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load widget_tweaks %}
 
 {% block title %}
 Data - {{ block.super }}
@@ -13,9 +14,41 @@ Data - {{ block.super }}
 {% endblock %}
 
 {% block content %}
-<div class="mb-4">
-  <a href="{% url 'new_data' %}" class="btn btn-secondary">Apply Filter</a>
-</div>
+<form method="get">
+  <div class="mb-4">
+    <button type="submit" class="btn btn-secondary">
+        <span class="glyphicon glyphicon-search"></span> Apply Filter
+      </button>
+  </div>
+    <div class="well">
+      <div class="row">
+        <div class="form-group col-sm-4 col-md-3">
+          {{ datafilter.form.Title.label_tag }}
+          {% render_field datafilter.form.Title class="form-control" %}
+        </div>
+        <div class="form-group col-sm-4 col-md-3">
+          {{ datafilter.form.Author.label_tag }}
+          {% render_field datafilter.form.Author class="form-control" %}
+        </div>
+        <div class="form-group col-sm-4 col-md-3">
+          {{ datafilter.form.PubType.label_tag }}
+          {% render_field datafilter.form.PubType class="form-control" %}
+        </div>
+        <div class="form-group col-sm-4 col-md-3">
+          {{ datafilter.form.Date_published.label_tag }}
+          {% render_field datafilter.form.Date_published placeholder="yyyy-mm-dd" class="form-control" %}
+        </div>
+        <div class="form-group col-sm-4 col-md-3">
+          {{ datafilter.form.Country.label_tag }}
+          {% render_field datafilter.form.Country class="form-control" %}
+        </div>
+        <div class="form-group col-sm-4 col-md-3">
+          {{ datafilter.form.created_by.label_tag }}
+          {% render_field datafilter.form.created_by class="form-control" %}
+        </div>
+      </div>
+    </div>
+  </form>
 <div>
 </div>
   <table class="table">
@@ -30,7 +63,7 @@ Data - {{ block.super }}
       </tr>
     </thead>
     <tbody>
-      {% for datasource in datasources %}
+      {% for datasource in datafilter.qs %}
         <tr>
           <td><b>{{datasource.pk}}</b></td>
           {% if datasource.PubType == "Journal article" %}

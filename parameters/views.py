@@ -45,7 +45,8 @@ def edit_param(request,pk):
 def param_add_data(request,param_pk):
     param = get_object_or_404(Parameter,pk=param_pk)
     datasources = DataSource.objects.exclude(pk__in=param.data_sources.all().values_list('pk', flat=True))
-    return render(request,'param_add_data.html',{'datasources': datasources,'param': param})
+    datafilter = DataSourceFilter(request.GET, queryset=datasources)
+    return render(request,'param_add_data.html',{'datafilter': datafilter,'param': param})
 
 def param_link_data(request,param_pk,data_pk):
     user = User.objects.first()

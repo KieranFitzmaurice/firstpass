@@ -29,7 +29,7 @@ class DataSource(models.Model):
     PubType = models.CharField(max_length=255,verbose_name="Publication type",choices=PUBTYPE_CHOICES)
     Author = models.CharField(max_length=255,help_text="surname of lead author (if article)",verbose_name="Author or publisher")
     Title = models.CharField(max_length=255,verbose_name="Title")
-    Date_published = models.DateField(blank=True,verbose_name="Date published",help_text="yyyy-mm-dd")
+    Date_published = models.DateField(verbose_name="Date published",help_text="yyyy-mm-dd")
     Country = models.CharField(max_length=255,verbose_name="Country / Setting",choices=COUNTRY_CHOICES,default="None")
     CountryCode = models.CharField(max_length=10)
     URL = models.URLField(blank=True,verbose_name="URL")
