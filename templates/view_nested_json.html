@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block title %}
+Input Files - {{ block.super }}
+{% endblock %}
+
+{% block breadcrumb %}
+  <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+  <li class="breadcrumb-item active">Input Files</li>
+{% endblock %}
+
+{% block content %}
+<div>
+    {% include "tree_view_template.html" with nestedjson=infile.info.items %}
+</div>
+{% endblock %}

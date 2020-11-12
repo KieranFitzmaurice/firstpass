@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse, Http404, HttpResponseRedirect
-from .models import Project, Parameter, DataSource
+from .models import Project, Parameter, DataSource, InFile
 from .forms import NewParameterForm, NewDataSourceForm
 from django.utils import timezone
 from .choices import get_short_code
@@ -12,7 +12,8 @@ def home(request):
     n_param = Parameter.objects.count()
     n_datasource = DataSource.objects.count()
     n_project = Project.objects.count()
-    return render(request,'home.html',{'n_param':n_param,'n_datasource':n_datasource,'n_project':n_project})
+    n_infile = InFile.objects.count()
+    return render(request,'home.html',{'n_param':n_param,'n_datasource':n_datasource,'n_infile':n_infile})
 
 def param_lib(request):
     params = Parameter.objects.all()
@@ -251,3 +252,7 @@ def unlink_param_from_data(request,data_pk,param_pk):
     datasource.save()
     param.save()
     return redirect('view_data', pk=data_pk)
+
+def test_infile(request):
+    infile = InFile.objects.all()[0:1].get()
+    return render(request,'view_nested_json.html',{'infile':infile})

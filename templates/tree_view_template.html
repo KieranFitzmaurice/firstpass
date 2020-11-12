@@ -1,0 +1,10 @@
+<ul>
+{% for key,item in nestedjson %}
+  {% if not item.items %}
+  <li>{{key}} - <b>{{item}}</b></li>
+  {% else %}
+  <li>{{key}}</li>
+    {% include "tree_view_template.html" with nestedjson=item.items %}
+  {% endif %}
+{% endfor %}
+</ul>

@@ -39,7 +39,8 @@ urlpatterns = [
     path('datasources/<int:pk>/edit/',views.edit_data,name='edit_data'),
     path('datasources/<int:data_pk>/add-param/<int:param_pk>/',views.data_link_param,name='data_link_param'),
     path('datasources/<int:data_pk>/unlink/<int:param_pk>/',views.unlink_param_from_data,name='unlink_param_from_data'),
-    path('datasources/',views.delete_data,name='delete_data')
+    path('datasources/',views.delete_data,name='delete_data'),
+    path('inputfiles/',views.test_infile,name='test_infile')
 ]
 
 if settings.DEBUG:

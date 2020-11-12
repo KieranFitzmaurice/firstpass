@@ -1,4 +1,7 @@
 # User defined module to store options for charfield choices
+import json
+import os
+
 
 def country_options():
     choices = [('None','None'),
@@ -552,3 +555,10 @@ def status_options():
                ('Flagged for review','Flagged for review'),
                ('Outdated','Outdated')]
     return choices
+
+def get_default_json():
+    filepath = os.path.join(os.path.dirname( __file__ ),'model_input_files','CEACOV-0-6.json')
+    with open(filepath) as f:
+        default_json = json.load(f)
+        f.close()
+    return default_json

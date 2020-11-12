@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-from .choices import country_options, publication_options, parameter_options, status_options
+from .choices import country_options, publication_options, parameter_options, status_options, get_default_json
 
 # Create your models here.
 
@@ -49,6 +49,10 @@ class DataSource(models.Model):
             return self.Author+' et al. - '+self.Title
         else:
             return self.Author+' - '+self.Title
+
+class InFile(models.Model):
+    DEFAULT_JSON = get_default_json()
+    info = models.JSONField(default = DEFAULT_JSON)
 
 class Project(models.Model):
     name = models.CharField(max_length=30,unique=True)

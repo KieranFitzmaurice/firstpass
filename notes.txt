@@ -1,0 +1,2 @@
+To enable JSONField in sqlite3, follow these instructions (not needed in many cases)
+https://code.djangoproject.com/wiki/JSON1Extension
