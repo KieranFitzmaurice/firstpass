@@ -13,6 +13,6 @@ Input Files - {{ block.super }}
 
 {% block content %}
 <div>
-    {% include "tree_view_template.html" with nestedjson=infile.info.items %}
+    {% include "tree_root_view.html" with x=infile.info ledger=infile.ledger %}
 </div>
 {% endblock %}

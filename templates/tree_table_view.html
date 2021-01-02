@@ -1,0 +1,4 @@
+{% load treeview_extras %}
+<div class="mb-3">
+{{ledger|keyvalue:json_path|keyvalue:"label"}} - Table size {{ledger|keyvalue:json_path|keyvalue:"nrow"}} by {{ledger|keyvalue:json_path|keyvalue:"ncol"}}
+</div>

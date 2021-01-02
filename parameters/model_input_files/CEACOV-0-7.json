@@ -1,0 +1,3511 @@
+{
+  "model version": "v0.7",
+  "simulation parameters": {
+    "cohort size": 1050000,
+    "time horizon": 120,
+    "fixed seed": true,
+    "detailed state outputs": true
+  },
+  "initial state": {
+    "transmission group dist": {
+      "tn_group 0": 0.0244,
+      "tn_group 1": 0.0098,
+      "tn_group 2": 0.9659,
+      "tn_group 3": 0
+    },
+    "risk category dist": {
+      "for tn_group 0": {
+        "0-19y": 1,
+        "20-59y": 0,
+        ">=60y": 0
+      },
+      "for tn_group 1": {
+        "0-19y": 0,
+        "20-59y": 0.75,
+        ">=60y": 0.25
+      },
+      "for tn_group 2": {
+        "0-19y": 0,
+        "20-59y": 0.84,
+        ">=60y": 0.16
+      },
+      "for tn_group 3": {
+        "0-19y": 1,
+        "20-59y": 0,
+        ">=60y": 0
+      }
+    },
+    "initial disease dist": {
+      "for tn_group 0": {
+        "susceptible": 0.89,
+        "pre-infectious incubation": 0.005,
+        "asymptomatic": 0.005,
+        "mild/moderate": 0,
+        "severe": 0,
+        "critical": 0,
+        "recuperation": 0,
+        "recovered": 0.10
+      },
+      "for tn_group 1": {
+        "susceptible": 0.94,
+        "pre-infectious incubation": 0.005,
+        "asymptomatic": 0.005,
+        "mild/moderate": 0,
+        "severe": 0,
+        "critical": 0,
+        "recuperation": 0,
+        "recovered": 0.05
+      },
+      "for tn_group 2": {
+        "susceptible": 0.81,
+        "pre-infectious incubation": 0.01,
+        "asymptomatic": 0.01,
+        "mild/moderate": 0.01,
+        "severe": 0.005,
+        "critical": 0.005,
+        "recuperation": 0,
+        "recovered": 0.15
+      },
+      "for tn_group 3": {
+        "susceptible": 1,
+        "pre-infectious incubation": 0,
+        "asymptomatic": 0,
+        "mild/moderate": 0,
+        "severe": 0,
+        "critical": 0,
+        "recuperation": 0,
+        "recovered": 0
+      }
+    },
+    "severity dist": {
+      "for 0-19y": {
+        "asymptomatic": 0.5239,
+        "mild/moderate": 0.471,
+        "severe": 0.005,
+        "critical": 0.0001
+      },
+      "for 20-59y": {
+        "asymptomatic": 0.262,
+        "mild/moderate": 0.7195,
+        "severe": 0.018,
+        "critical": 0.0067
+      },
+      "for >=60y": {
+        "asymptomatic": 0.18,
+        "mild/moderate": 0.7879,
+        "severe": 0.0009,
+        "critical": 0.0312
+      }
+    },
+    "start intervention": {
+      "for tn_group 0": 1,
+      "for tn_group 1": 6,
+      "for tn_group 2": 9,
+      "for tn_group 3": 0
+    }
+  },
+  "disease progression": {
+    "daily disease progression probability for intervention 0": {
+      "for severity = asymptomatic": {
+        "from pre-infectious incubation to asymptomatic": 0.323,
+        "from asymptomatic to recovered": 0.099,
+        "from recovered to susceptible": 0
+      },
+      "for severity = mild/moderate": {
+        "from pre-infectious incubation to asymptomatic": 0.323,
+        "from asymptomatic to mild/moderate": 0.394,
+        "from mild/moderate to recovered": 0.095,
+        "from recovered to susceptible": 0
+      },
+      "for severity = severe": {
+        "from pre-infectious incubation to asymptomatic": 0.323,
+        "from asymptomatic to mild/moderate": 0.394,
+        "from mild/moderate to severe": 0.143,
+        "from severe to recovered": 0.063,
+        "from recovered to susceptible": 0
+      },
+      "for severity = critical": {
+        "from pre-infectious incubation to asymptomatic": 0.323,
+        "from asymptomatic to mild/moderate": 0.394,
+        "from mild/moderate to severe":  0.284,
+        "from severe to critical": 0.143,
+        "from critical to recuperation": 0,
+        "from recuperation to recovered": 0,
+        "from recovered to susceptible": 0
+      }
+    },
+    "daily disease progression probability for intervention 1": {
+      "for severity = asymptomatic": {
+        "from pre-infectious incubation to asymptomatic": 0.323,
+        "from asymptomatic to recovered": 0.099,
+        "from recovered to susceptible": 0
+      },
+      "for severity = mild/moderate": {
+        "from pre-infectious incubation to asymptomatic": 0.323,
+        "from asymptomatic to mild/moderate": 0.394,
+        "from mild/moderate to recovered": 0.095,
+        "from recovered to susceptible": 0
+      },
+      "for severity = severe": {
+        "from pre-infectious incubation to asymptomatic": 0.323,
+        "from asymptomatic to mild/moderate": 0.394,
+        "from mild/moderate to severe": 0.143,
+        "from severe to recovered": 0.063,
+        "from recovered to susceptible": 0
+      },
+      "for severity = critical": {
+        "from pre-infectious incubation to asymptomatic": 0.323,
+        "from asymptomatic to mild/moderate": 0.394,
+        "from mild/moderate to severe":  0.284,
+        "from severe to critical": 0.143,
+        "from critical to recuperation": 0,
+        "from recuperation to recovered": 0,
+        "from recovered to susceptible": 0
+      }
+    },
+    "daily disease progression probability for intervention 2": {
+      "for severity = asymptomatic": {
+        "from pre-infectious incubation to asymptomatic": 0.323,
+        "from asymptomatic to recovered": 0.099,
+        "from recovered to susceptible": 0
+      },
+      "for severity = mild/moderate": {
+        "from pre-infectious incubation to asymptomatic": 0.323,
+        "from asymptomatic to mild/moderate": 0.394,
+        "from mild/moderate to recovered": 0.095,
+        "from recovered to susceptible": 0
+      },
+      "for severity = severe": {
+        "from pre-infectious incubation to asymptomatic": 0.323,
+        "from asymptomatic to mild/moderate": 0.394,
+        "from mild/moderate to severe": 0.143,
+        "from severe to recovered": 0.063,
+        "from recovered to susceptible": 0
+      },
+      "for severity = critical": {
+        "from pre-infectious incubation to asymptomatic": 0.323,
+        "from asymptomatic to mild/moderate": 0.394,
+        "from mild/moderate to severe":  0.284,
+        "from severe to critical": 0.143,
+        "from critical to recuperation": 0,
+        "from recuperation to recovered": 0,
+        "from recovered to susceptible": 0
+      }
+    },
+    "daily disease progression probability for intervention 3": {
+      "for severity = asymptomatic": {
+        "from pre-infectious incubation to asymptomatic": 0.323,
+        "from asymptomatic to recovered": 0.099,
+        "from recovered to susceptible": 0
+      },
+      "for severity = mild/moderate": {
+        "from pre-infectious incubation to asymptomatic": 0.323,
+        "from asymptomatic to mild/moderate": 0.394,
+        "from mild/moderate to recovered": 0.095,
+        "from recovered to susceptible": 0
+      },
+      "for severity = severe": {
+        "from pre-infectious incubation to asymptomatic": 0.323,
+        "from asymptomatic to mild/moderate": 0.394,
+        "from mild/moderate to severe": 0.143,
+        "from severe to recovered": 0.091,
+        "from recovered to susceptible": 0
+      },
+      "for severity = critical": {
+        "from pre-infectious incubation to asymptomatic": 0.323,
+        "from asymptomatic to mild/moderate": 0.394,
+        "from mild/moderate to severe": 0.284,
+        "from severe to critical": 0.105,
+        "from critical to recuperation": 0.049,
+        "from recuperation to recovered": 0.1609,
+        "from recovered to susceptible": 0
+      }
+    },
+    "daily disease progression probability for intervention 4": {
+      "for severity = asymptomatic": {
+        "from pre-infectious incubation to asymptomatic": 0.323,
+        "from asymptomatic to recovered": 0.099,
+        "from recovered to susceptible": 0
+      },
+      "for severity = mild/moderate": {
+        "from pre-infectious incubation to asymptomatic": 0.323,
+        "from asymptomatic to mild/moderate": 0.394,
+        "from mild/moderate to recovered": 0.095,
+        "from recovered to susceptible": 0
+      },
+      "for severity = severe": {
+        "from pre-infectious incubation to asymptomatic": 0.323,
+        "from asymptomatic to mild/moderate": 0.394,
+        "from mild/moderate to severe": 0.143,
+        "from severe to recovered": 0.063,
+        "from recovered to susceptible": 0
+      },
+      "for severity = critical": {
+        "from pre-infectious incubation to asymptomatic": 0.323,
+        "from asymptomatic to mild/moderate": 0.394,
+        "from mild/moderate to severe":  0.284,
+        "from severe to critical": 0.143,
+        "from critical to recuperation": 0,
+        "from recuperation to recovered": 0,
+        "from recovered to susceptible": 0
+      }
+    },
+    "daily disease progression probability for intervention 5": {
+      "for severity = asymptomatic": {
+        "from pre-infectious incubation to asymptomatic": 0.323,
+        "from asymptomatic to recovered": 0.099,
+        "from recovered to susceptible": 0
+      },
+      "for severity = mild/moderate": {
+        "from pre-infectious incubation to asymptomatic": 0.323,
+        "from asymptomatic to mild/moderate": 0.394,
+        "from mild/moderate to recovered": 0.095,
+        "from recovered to susceptible": 0
+      },
+      "for severity = severe": {
+        "from pre-infectious incubation to asymptomatic": 0.323,
+        "from asymptomatic to mild/moderate": 0.394,
+        "from mild/moderate to severe": 0.143,
+        "from severe to recovered": 0.091,
+        "from recovered to susceptible": 0
+      },
+      "for severity = critical": {
+        "from pre-infectious incubation to asymptomatic": 0.323,
+        "from asymptomatic to mild/moderate": 0.394,
+        "from mild/moderate to severe": 0.284,
+        "from severe to critical": 0.105,
+        "from critical to recuperation": 0.049,
+        "from recuperation to recovered": 0.1609,
+        "from recovered to susceptible": 0
+      }
+    },
+    "daily disease progression probability for intervention 6": {
+      "for severity = asymptomatic": {
+        "from pre-infectious incubation to asymptomatic": 0.323,
+        "from asymptomatic to recovered": 0.099,
+        "from recovered to susceptible": 0
+      },
+      "for severity = mild/moderate": {
+        "from pre-infectious incubation to asymptomatic": 0.323,
+        "from asymptomatic to mild/moderate": 0.394,
+        "from mild/moderate to recovered": 0.095,
+        "from recovered to susceptible": 0
+      },
+      "for severity = severe": {
+        "from pre-infectious incubation to asymptomatic": 0.323,
+        "from asymptomatic to mild/moderate": 0.394,
+        "from mild/moderate to severe": 0.143,
+        "from severe to recovered": 0.063,
+        "from recovered to susceptible": 0
+      },
+      "for severity = critical": {
+        "from pre-infectious incubation to asymptomatic": 0.323,
+        "from asymptomatic to mild/moderate": 0.394,
+        "from mild/moderate to severe":  0.284,
+        "from severe to critical": 0.143,
+        "from critical to recuperation": 0,
+        "from recuperation to recovered": 0,
+        "from recovered to susceptible": 0
+      }
+    },
+    "daily disease progression probability for intervention 7": {
+      "for severity = asymptomatic": {
+        "from pre-infectious incubation to asymptomatic": 0.323,
+        "from asymptomatic to recovered": 0.099,
+        "from recovered to susceptible": 0
+      },
+      "for severity = mild/moderate": {
+        "from pre-infectious incubation to asymptomatic": 0.323,
+        "from asymptomatic to mild/moderate": 0.394,
+        "from mild/moderate to recovered": 0.095,
+        "from recovered to susceptible": 0
+      },
+      "for severity = severe": {
+        "from pre-infectious incubation to asymptomatic": 0.323,
+        "from asymptomatic to mild/moderate": 0.394,
+        "from mild/moderate to severe": 0.143,
+        "from severe to recovered": 0.063,
+        "from recovered to susceptible": 0
+      },
+      "for severity = critical": {
+        "from pre-infectious incubation to asymptomatic": 0.323,
+        "from asymptomatic to mild/moderate": 0.394,
+        "from mild/moderate to severe":  0.284,
+        "from severe to critical": 0.143,
+        "from critical to recuperation": 0,
+        "from recuperation to recovered": 0,
+        "from recovered to susceptible": 0
+      }
+    },
+    "daily disease progression probability for intervention 8": {
+      "for severity = asymptomatic": {
+        "from pre-infectious incubation to asymptomatic": 0.323,
+        "from asymptomatic to recovered": 0.099,
+        "from recovered to susceptible": 0
+      },
+      "for severity = mild/moderate": {
+        "from pre-infectious incubation to asymptomatic": 0.323,
+        "from asymptomatic to mild/moderate": 0.394,
+        "from mild/moderate to recovered": 0.095,
+        "from recovered to susceptible": 0
+      },
+      "for severity = severe": {
+        "from pre-infectious incubation to asymptomatic": 0.323,
+        "from asymptomatic to mild/moderate": 0.394,
+        "from mild/moderate to severe": 0.143,
+        "from severe to recovered": 0.091,
+        "from recovered to susceptible": 0
+      },
+      "for severity = critical": {
+        "from pre-infectious incubation to asymptomatic": 0.323,
+        "from asymptomatic to mild/moderate": 0.394,
+        "from mild/moderate to severe": 0.284,
+        "from severe to critical": 0.105,
+        "from critical to recuperation": 0.049,
+        "from recuperation to recovered": 0.1609,
+        "from recovered to susceptible": 0
+      }
+    },
+    "daily disease progression probability for intervention 9": {
+      "for severity = asymptomatic": {
+        "from pre-infectious incubation to asymptomatic": 0.323,
+        "from asymptomatic to recovered": 0.099,
+        "from recovered to susceptible": 0
+      },
+      "for severity = mild/moderate": {
+        "from pre-infectious incubation to asymptomatic": 0.323,
+        "from asymptomatic to mild/moderate": 0.394,
+        "from mild/moderate to recovered": 0.095,
+        "from recovered to susceptible": 0
+      },
+      "for severity = severe": {
+        "from pre-infectious incubation to asymptomatic": 0.323,
+        "from asymptomatic to mild/moderate": 0.394,
+        "from mild/moderate to severe": 0.143,
+        "from severe to recovered": 0.063,
+        "from recovered to susceptible": 0
+      },
+      "for severity = critical": {
+        "from pre-infectious incubation to asymptomatic": 0.323,
+        "from asymptomatic to mild/moderate": 0.394,
+        "from mild/moderate to severe":  0.284,
+        "from severe to critical": 0.143,
+        "from critical to recuperation": 0,
+        "from recuperation to recovered": 0,
+        "from recovered to susceptible": 0
+      }
+    },
+    "daily disease progression probability for intervention 10": {
+      "for severity = asymptomatic": {
+        "from pre-infectious incubation to asymptomatic": 0.323,
+        "from asymptomatic to recovered": 0.099,
+        "from recovered to susceptible": 0
+      },
+      "for severity = mild/moderate": {
+        "from pre-infectious incubation to asymptomatic": 0.323,
+        "from asymptomatic to mild/moderate": 0.394,
+        "from mild/moderate to recovered": 0.095,
+        "from recovered to susceptible": 0
+      },
+      "for severity = severe": {
+        "from pre-infectious incubation to asymptomatic": 0.323,
+        "from asymptomatic to mild/moderate": 0.394,
+        "from mild/moderate to severe": 0.143,
+        "from severe to recovered": 0.063,
+        "from recovered to susceptible": 0
+      },
+      "for severity = critical": {
+        "from pre-infectious incubation to asymptomatic": 0.323,
+        "from asymptomatic to mild/moderate": 0.394,
+        "from mild/moderate to severe":  0.284,
+        "from severe to critical": 0.143,
+        "from critical to recuperation": 0,
+        "from recuperation to recovered": 0,
+        "from recovered to susceptible": 0
+      }
+    },
+    "daily disease progression probability for intervention 11": {
+      "for severity = asymptomatic": {
+        "from pre-infectious incubation to asymptomatic": 0.323,
+        "from asymptomatic to recovered": 0.099,
+        "from recovered to susceptible": 0
+      },
+      "for severity = mild/moderate": {
+        "from pre-infectious incubation to asymptomatic": 0.323,
+        "from asymptomatic to mild/moderate": 0.394,
+        "from mild/moderate to recovered": 0.095,
+        "from recovered to susceptible": 0
+      },
+      "for severity = severe": {
+        "from pre-infectious incubation to asymptomatic": 0.323,
+        "from asymptomatic to mild/moderate": 0.394,
+        "from mild/moderate to severe": 0.143,
+        "from severe to recovered": 0.091,
+        "from recovered to susceptible": 0
+      },
+      "for severity = critical": {
+        "from pre-infectious incubation to asymptomatic": 0.323,
+        "from asymptomatic to mild/moderate": 0.394,
+        "from mild/moderate to severe": 0.284,
+        "from severe to critical": 0.105,
+        "from critical to recuperation": 0.049,
+        "from recuperation to recovered": 0.1609,
+        "from recovered to susceptible": 0
+      }
+    },
+    "daily disease progression probability for intervention 12": {
+      "for severity = asymptomatic": {
+        "from pre-infectious incubation to asymptomatic": 0.323,
+        "from asymptomatic to recovered": 0.099,
+        "from recovered to susceptible": 0
+      },
+      "for severity = mild/moderate": {
+        "from pre-infectious incubation to asymptomatic": 0.323,
+        "from asymptomatic to mild/moderate": 0.394,
+        "from mild/moderate to recovered": 0.095,
+        "from recovered to susceptible": 0
+      },
+      "for severity = severe": {
+        "from pre-infectious incubation to asymptomatic": 0.323,
+        "from asymptomatic to mild/moderate": 0.394,
+        "from mild/moderate to severe": 0.143,
+        "from severe to recovered": 0.063,
+        "from recovered to susceptible": 0
+      },
+      "for severity = critical": {
+        "from pre-infectious incubation to asymptomatic": 0.323,
+        "from asymptomatic to mild/moderate": 0.394,
+        "from mild/moderate to severe":  0.284,
+        "from severe to critical": 0.143,
+        "from critical to recuperation": 0,
+        "from recuperation to recovered": 0,
+        "from recovered to susceptible": 0
+      }
+    },
+    "daily disease progression probability for intervention 13": {
+      "for severity = asymptomatic": {
+        "from pre-infectious incubation to asymptomatic": 0,
+        "from asymptomatic to recovered": 0,
+        "from recovered to susceptible": 0
+      },
+      "for severity = mild/moderate": {
+        "from pre-infectious incubation to asymptomatic": 0,
+        "from asymptomatic to mild/moderate": 0,
+        "from mild/moderate to recovered": 0,
+        "from recovered to susceptible": 0
+      },
+      "for severity = severe": {
+        "from pre-infectious incubation to asymptomatic": 0,
+        "from asymptomatic to mild/moderate": 0,
+        "from mild/moderate to severe": 0,
+        "from severe to recovered": 0,
+        "from recovered to susceptible": 0
+      },
+      "for severity = critical": {
+        "from pre-infectious incubation to asymptomatic": 0,
+        "from asymptomatic to mild/moderate": 0,
+        "from mild/moderate to severe": 0,
+        "from severe to critical": 0,
+        "from critical to recuperation": 0,
+        "from recuperation to recovered": 0,
+        "from recovered to susceptible": 0
+      }
+    },
+    "daily disease progression probability for intervention 14": {
+      "for severity = asymptomatic": {
+        "from pre-infectious incubation to asymptomatic": 0,
+        "from asymptomatic to recovered": 0,
+        "from recovered to susceptible": 0
+      },
+      "for severity = mild/moderate": {
+        "from pre-infectious incubation to asymptomatic": 0,
+        "from asymptomatic to mild/moderate": 0,
+        "from mild/moderate to recovered": 0,
+        "from recovered to susceptible": 0
+      },
+      "for severity = severe": {
+        "from pre-infectious incubation to asymptomatic": 0,
+        "from asymptomatic to mild/moderate": 0,
+        "from mild/moderate to severe": 0,
+        "from severe to recovered": 0,
+        "from recovered to susceptible": 0
+      },
+      "for severity = critical": {
+        "from pre-infectious incubation to asymptomatic": 0,
+        "from asymptomatic to mild/moderate": 0,
+        "from mild/moderate to severe": 0,
+        "from severe to critical": 0,
+        "from critical to recuperation": 0,
+        "from recuperation to recovered": 0,
+        "from recovered to susceptible": 0
+      }
+    },
+    "daily disease progression probability for intervention 15": {
+      "for severity = asymptomatic": {
+        "from pre-infectious incubation to asymptomatic": 0,
+        "from asymptomatic to recovered": 0,
+        "from recovered to susceptible": 0
+      },
+      "for severity = mild/moderate": {
+        "from pre-infectious incubation to asymptomatic": 0,
+        "from asymptomatic to mild/moderate": 0,
+        "from mild/moderate to recovered": 0,
+        "from recovered to susceptible": 0
+      },
+      "for severity = severe": {
+        "from pre-infectious incubation to asymptomatic": 0,
+        "from asymptomatic to mild/moderate": 0,
+        "from mild/moderate to severe": 0,
+        "from severe to recovered": 0,
+        "from recovered to susceptible": 0
+      },
+      "for severity = critical": {
+        "from pre-infectious incubation to asymptomatic": 0,
+        "from asymptomatic to mild/moderate": 0,
+        "from mild/moderate to severe": 0,
+        "from severe to critical": 0,
+        "from critical to recuperation": 0,
+        "from recuperation to recovered": 0,
+        "from recovered to susceptible": 0
+      }
+    },
+    "daily disease progression probability for intervention 16": {
+      "for severity = asymptomatic": {
+        "from pre-infectious incubation to asymptomatic": 0,
+        "from asymptomatic to recovered": 0,
+        "from recovered to susceptible": 0
+      },
+      "for severity = mild/moderate": {
+        "from pre-infectious incubation to asymptomatic": 0,
+        "from asymptomatic to mild/moderate": 0,
+        "from mild/moderate to recovered": 0,
+        "from recovered to susceptible": 0
+      },
+      "for severity = severe": {
+        "from pre-infectious incubation to asymptomatic": 0,
+        "from asymptomatic to mild/moderate": 0,
+        "from mild/moderate to severe": 0,
+        "from severe to recovered": 0,
+        "from recovered to susceptible": 0
+      },
+      "for severity = critical": {
+        "from pre-infectious incubation to asymptomatic": 0,
+        "from asymptomatic to mild/moderate": 0,
+        "from mild/moderate to severe": 0,
+        "from severe to critical": 0,
+        "from critical to recuperation": 0,
+        "from recuperation to recovered": 0,
+        "from recovered to susceptible": 0
+      }
+    },
+    "daily disease progression probability for intervention 17": {
+      "for severity = asymptomatic": {
+        "from pre-infectious incubation to asymptomatic": 0,
+        "from asymptomatic to recovered": 0,
+        "from recovered to susceptible": 0
+      },
+      "for severity = mild/moderate": {
+        "from pre-infectious incubation to asymptomatic": 0,
+        "from asymptomatic to mild/moderate": 0,
+        "from mild/moderate to recovered": 0,
+        "from recovered to susceptible": 0
+      },
+      "for severity = severe": {
+        "from pre-infectious incubation to asymptomatic": 0,
+        "from asymptomatic to mild/moderate": 0,
+        "from mild/moderate to severe": 0,
+        "from severe to recovered": 0,
+        "from recovered to susceptible": 0
+      },
+      "for severity = critical": {
+        "from pre-infectious incubation to asymptomatic": 0,
+        "from asymptomatic to mild/moderate": 0,
+        "from mild/moderate to severe": 0,
+        "from severe to critical": 0,
+        "from critical to recuperation": 0,
+        "from recuperation to recovered": 0,
+        "from recovered to susceptible": 0
+      }
+    },
+    "daily prob recovery from severe state in critical path": {
+      "for intervention 0": 0,
+      "for intervention 1": 0,
+      "for intervention 2": 0,
+      "for intervention 3": 0.0263,
+      "for intervention 4": 0,
+      "for intervention 5": 0.0263,
+      "for intervention 6": 0,
+      "for intervention 7": 0,
+      "for intervention 8": 0.0263,
+      "for intervention 9": 0,
+      "for intervention 10": 0,
+      "for intervention 11": 0.0263,
+      "for intervention 12": 0,
+      "for intervention 13": 0,
+      "for intervention 14": 0,
+      "for intervention 15": 0,
+      "for intervention 16": 0,
+      "for intervention 17": 0
+    },
+    "initial immunity on recovery probability": {
+      "for intervention 0": {
+        "for severity = 0": 1,
+        "for severity = 1": 1,
+        "for severity = 2": 1,
+        "for severity = 3": 1
+      },
+      "for intervention 1": {
+        "for severity = 0": 1,
+        "for severity = 1": 1,
+        "for severity = 2": 1,
+        "for severity = 3": 1
+      },
+      "for intervention 2": {
+        "for severity = 0": 1,
+        "for severity = 1": 1,
+        "for severity = 2": 1,
+        "for severity = 3": 1
+      },
+      "for intervention 3": {
+        "for severity = 0": 1,
+        "for severity = 1": 1,
+        "for severity = 2": 1,
+        "for severity = 3": 1
+      },
+      "for intervention 4": {
+        "for severity = 0": 1,
+        "for severity = 1": 1,
+        "for severity = 2": 1,
+        "for severity = 3": 1
+      },
+      "for intervention 5": {
+        "for severity = 0": 1,
+        "for severity = 1": 1,
+        "for severity = 2": 1,
+        "for severity = 3": 1
+      },
+      "for intervention 6": {
+        "for severity = 0": 1,
+        "for severity = 1": 1,
+        "for severity = 2": 1,
+        "for severity = 3": 1
+      },
+      "for intervention 7": {
+        "for severity = 0": 1,
+        "for severity = 1": 1,
+        "for severity = 2": 1,
+        "for severity = 3": 1
+      },
+      "for intervention 8": {
+        "for severity = 0": 1,
+        "for severity = 1": 1,
+        "for severity = 2": 1,
+        "for severity = 3": 1
+      },
+      "for intervention 9": {
+        "for severity = 0": 1,
+        "for severity = 1": 1,
+        "for severity = 2": 1,
+        "for severity = 3": 1
+      },
+      "for intervention 10": {
+        "for severity = 0": 1,
+        "for severity = 1": 1,
+        "for severity = 2": 1,
+        "for severity = 3": 1
+      },
+      "for intervention 11": {
+        "for severity = 0": 1,
+        "for severity = 1": 1,
+        "for severity = 2": 1,
+        "for severity = 3": 1
+      },
+      "for intervention 12": {
+        "for severity = 0": 1,
+        "for severity = 1": 1,
+        "for severity = 2": 1,
+        "for severity = 3": 1
+      },
+      "for intervention 13": {
+        "for severity = 0": 1,
+        "for severity = 1": 1,
+        "for severity = 2": 1,
+        "for severity = 3": 1
+      },
+      "for intervention 14": {
+        "for severity = 0": 1,
+        "for severity = 1": 1,
+        "for severity = 2": 1,
+        "for severity = 3": 1
+      },
+      "for intervention 15": {
+        "for severity = 0": 1,
+        "for severity = 1": 1,
+        "for severity = 2": 1,
+        "for severity = 3": 1
+      },
+      "for intervention 16": {
+        "for severity = 0": 1,
+        "for severity = 1": 1,
+        "for severity = 2": 1,
+        "for severity = 3": 1
+      },
+      "for intervention 17": {
+        "for severity = 0": 1,
+        "for severity = 1": 1,
+        "for severity = 2": 1,
+        "for severity = 3": 1
+      }
+    }
+  },
+  "disease mortality": {
+    "daily mortality prob for 0-19y": {
+      "on intervention 0": {
+        "while severe": 0,
+        "while critical": 0.1175
+      },
+      "on intervention 1": {
+        "while severe": 0,
+        "while critical": 0.1175
+      },
+      "on intervention 2": {
+        "while severe": 0,
+        "while critical": 0.1175
+      },
+      "on intervention 3": {
+        "while severe": 0,
+        "while critical": 0.000006
+      },
+      "on intervention 4": {
+        "while severe": 0,
+        "while critical": 0.1175
+      },
+      "on intervention 5": {
+        "while severe": 0,
+        "while critical": 0.000006
+      },
+      "on intervention 6": {
+        "while severe": 0,
+        "while critical": 0.1175
+      },
+      "on intervention 7": {
+        "while severe": 0,
+        "while critical": 0.1175
+      },
+      "on intervention 8": {
+        "while severe": 0,
+        "while critical": 0.000006
+      },
+      "on intervention 9": {
+        "while severe": 0,
+        "while critical": 0.1175
+      },
+      "on intervention 10": {
+        "while severe": 0,
+        "while critical": 0.1175
+      },
+      "on intervention 11": {
+        "while severe": 0,
+        "while critical": 0.000006
+      },
+      "on intervention 12": {
+        "while severe": 0,
+        "while critical": 0.1175
+      },
+      "on intervention 13": {
+        "while severe": 0,
+        "while critical": 0
+      },
+      "on intervention 14": {
+        "while severe": 0,
+        "while critical": 0
+      },
+      "on intervention 15": {
+        "while severe": 0,
+        "while critical": 0
+      },
+      "on intervention 16": {
+        "while severe": 0,
+        "while critical": 0
+      },
+      "on intervention 17": {
+        "while severe": 0,
+        "while critical": 0
+      }
+    },
+    "daily mortality prob for 20-59y": {
+      "on intervention 0": {
+        "while severe": 0,
+        "while critical": 0.1662
+      },
+      "on intervention 1": {
+        "while severe": 0,
+        "while critical": 0.1662
+      },
+      "on intervention 2": {
+        "while severe": 0,
+        "while critical": 0.1662
+      },
+      "on intervention 3": {
+        "while severe": 0,
+        "while critical": 0.0038
+      },
+      "on intervention 4": {
+        "while severe": 0,
+        "while critical": 0.1662
+      },
+      "on intervention 5": {
+        "while severe": 0,
+        "while critical": 0.0038
+      },
+      "on intervention 6": {
+        "while severe": 0,
+        "while critical": 0.1662
+      },
+      "on intervention 7": {
+        "while severe": 0,
+        "while critical": 0.1662
+      },
+      "on intervention 8": {
+        "while severe": 0,
+        "while critical": 0.0038
+      },
+      "on intervention 9": {
+        "while severe": 0,
+        "while critical": 0.1662
+      },
+      "on intervention 10": {
+        "while severe": 0,
+        "while critical": 0.1662
+      },
+      "on intervention 11": {
+        "while severe": 0,
+        "while critical": 0.0038
+      },
+      "on intervention 12": {
+        "while severe": 0,
+        "while critical": 0.1662
+      },
+      "on intervention 13": {
+        "while severe": 0,
+        "while critical": 0
+      },
+      "on intervention 14": {
+        "while severe": 0,
+        "while critical": 0
+      },
+      "on intervention 15": {
+        "while severe": 0,
+        "while critical": 0
+      },
+      "on intervention 16": {
+        "while severe": 0,
+        "while critical": 0
+      },
+      "on intervention 17": {
+        "while severe": 0,
+        "while critical": 0
+      }
+    },
+    "daily mortality prob for >=60y": {
+      "on intervention 0": {
+        "while severe": 0,
+        "while critical": 0.2033
+      },
+      "on intervention 1": {
+        "while severe": 0,
+        "while critical": 0.2033
+      },
+      "on intervention 2": {
+        "while severe": 0,
+        "while critical": 0.2033
+      },
+      "on intervention 3": {
+        "while severe": 0,
+        "while critical": 0.05
+      },
+      "on intervention 4": {
+        "while severe": 0,
+        "while critical": 0.2033
+      },
+      "on intervention 5": {
+        "while severe": 0,
+        "while critical": 0.05
+      },
+      "on intervention 6": {
+        "while severe": 0,
+        "while critical": 0.2033
+      },
+      "on intervention 7": {
+        "while severe": 0,
+        "while critical": 0.2033
+      },
+      "on intervention 8": {
+        "while severe": 0,
+        "while critical": 0.05
+      },
+      "on intervention 9": {
+        "while severe": 0,
+        "while critical": 0.2033
+      },
+      "on intervention 10": {
+        "while severe": 0,
+        "while critical": 0.2033
+      },
+      "on intervention 11": {
+        "while severe": 0,
+        "while critical": 0.05
+      },
+      "on intervention 12": {
+        "while severe": 0,
+        "while critical": 0.2033
+      },
+      "on intervention 13": {
+        "while severe": 0,
+        "while critical": 0
+      },
+      "on intervention 14": {
+        "while severe": 0,
+        "while critical": 0
+      },
+      "on intervention 15": {
+        "while severe": 0,
+        "while critical": 0
+      },
+      "on intervention 16": {
+        "while severe": 0,
+        "while critical": 0
+      },
+      "on intervention 17": {
+        "while severe": 0,
+        "while critical": 0
+      }
+    }
+  },
+  "transmissions": {
+    "transmission rate": {
+      "for intervention 0": {
+        "while asymptomatic": 0.2394,
+        "while mild/moderate": 0.1948,
+        "while severe": 0.0135,
+        "while critical": 0.0107,
+        "while recuperation": 0.0135
+      },
+      "for intervention 1": {
+        "while asymptomatic": 0.2394,
+        "while mild/moderate": 0.1948,
+        "while severe": 0.0135,
+        "while critical": 0.0107,
+        "while recuperation": 0.0135
+      },
+      "for intervention 2": {
+        "while asymptomatic": 0.00367977142857143,
+        "while mild/moderate": 0.00367977142857143,
+        "while severe": 0.00367977142857143,
+        "while critical": 0.00367977142857143,
+        "while recuperation": 0.00367977142857143
+      },
+      "for intervention 3": {
+        "while asymptomatic": 0.000981142857142857,
+        "while mild/moderate": 0.000981142857142857,
+        "while severe": 0.000981142857142857,
+        "while critical": 0.000981142857142857,
+        "while recuperation": 0.000981142857142857
+      },
+      "for intervention 4": {
+        "while asymptomatic": 0.00367977142857143,
+        "while mild/moderate": 0.00367977142857143,
+        "while severe": 0.00367977142857143,
+        "while critical": 0.00367977142857143,
+        "while recuperation": 0.00367977142857143
+      },
+      "for intervention 5": {
+        "while asymptomatic": 0.000981142857142857,
+        "while mild/moderate": 0.000981142857142857,
+        "while severe": 0.000981142857142857,
+        "while critical": 0.000981142857142857,
+        "while recuperation": 0.000981142857142857
+      },
+      "for intervention 6": {
+        "while asymptomatic": 0.2394,
+        "while mild/moderate": 0.1948,
+        "while severe": 0.0135,
+        "while critical": 0.0107,
+        "while recuperation": 0.0135
+      },
+      "for intervention 7": {
+        "while asymptomatic": 0.00367977142857143,
+        "while mild/moderate": 0.00367977142857143,
+        "while severe": 0.00367977142857143,
+        "while critical": 0.00367977142857143,
+        "while recuperation": 0.00367977142857143
+      },
+      "for intervention 8": {
+        "while asymptomatic": 0.000981142857142857,
+        "while mild/moderate": 0.000981142857142857,
+        "while severe": 0.000981142857142857,
+        "while critical": 0.000981142857142857,
+        "while recuperation": 0.000981142857142857
+      },
+      "for intervention 9": {
+        "while asymptomatic": 0.2394,
+        "while mild/moderate": 0.1948,
+        "while severe": 0.0135,
+        "while critical": 0.0107,
+        "while recuperation": 0.0135
+      },
+      "for intervention 10": {
+        "while asymptomatic": 0.00367977142857143,
+        "while mild/moderate": 0.00367977142857143,
+        "while severe": 0.00367977142857143,
+        "while critical": 0.00367977142857143,
+        "while recuperation": 0.00367977142857143
+      },
+      "for intervention 11": {
+        "while asymptomatic": 0.000981142857142857,
+        "while mild/moderate": 0.000981142857142857,
+        "while severe": 0.000981142857142857,
+        "while critical": 0.000981142857142857,
+        "while recuperation": 0.000981142857142857
+      },
+      "for intervention 12": {
+        "while asymptomatic": 0.2394,
+        "while mild/moderate": 0.1948,
+        "while severe": 0.0135,
+        "while critical": 0.0107,
+        "while recuperation": 0.0135
+      },
+      "for intervention 13": {
+        "while asymptomatic": 0,
+        "while mild/moderate": 0,
+        "while severe": 0,
+        "while critical": 0,
+        "while recuperation": 0
+      },
+      "for intervention 14": {
+        "while asymptomatic": 0,
+        "while mild/moderate": 0,
+        "while severe": 0,
+        "while critical": 0,
+        "while recuperation": 0
+      },
+      "for intervention 15": {
+        "while asymptomatic": 0,
+        "while mild/moderate": 0,
+        "while severe": 0,
+        "while critical": 0,
+        "while recuperation": 0
+      },
+      "for intervention 16": {
+        "while asymptomatic": 0,
+        "while mild/moderate": 0,
+        "while severe": 0,
+        "while critical": 0,
+        "while recuperation": 0
+      },
+      "for intervention 17": {
+        "while asymptomatic": 0,
+        "while mild/moderate": 0,
+        "while severe": 0,
+        "while critical": 0,
+        "while recuperation": 0
+      }
+    },
+    "rate multiplier thresholds": {
+      "t0": 0,
+      "t1": 30,
+      "t2": 60,
+      "t3": 400
+    },
+    "rate multipliers": {
+      "for 0 <= day# < t0": {
+        "for intervention 0": 0,
+        "for intervention 1": 0,
+        "for intervention 2": 0,
+        "for intervention 3": 0,
+        "for intervention 4": 0,
+        "for intervention 5": 0,
+        "for intervention 6": 0,
+        "for intervention 7": 0,
+        "for intervention 8": 0,
+        "for intervention 9": 0,
+        "for intervention 10": 0,
+        "for intervention 11": 0,
+        "for intervention 12": 0,
+        "for intervention 13": 0,
+        "for intervention 14": 0,
+        "for intervention 15": 0,
+        "for intervention 16": 0,
+        "for intervention 17": 0
+      },
+      "for t0 <= day# < t1": {
+        "for intervention 0": 0.592962960399527,
+        "for intervention 1": 0.592962960399527,
+        "for intervention 2": 1,
+        "for intervention 3": 1,
+        "for intervention 4": 1,
+        "for intervention 5": 1,
+        "for intervention 6": 0.592962960399527,
+        "for intervention 7": 1,
+        "for intervention 8": 1,
+        "for intervention 9": 0.592962960399527,
+        "for intervention 10": 1,
+        "for intervention 11": 1,
+        "for intervention 12": 0.592962960399527,
+        "for intervention 13": 1,
+        "for intervention 14": 1,
+        "for intervention 15": 1,
+        "for intervention 16": 1,
+        "for intervention 17": 1
+      },
+      "for t1 <= day# < t2": {
+        "for intervention 0": 0.741203700499409,
+        "for intervention 1": 0.741203700499409,
+        "for intervention 2": 1,
+        "for intervention 3": 1,
+        "for intervention 4": 1,
+        "for intervention 5": 1,
+        "for intervention 6": 0.741203700499409,
+        "for intervention 7": 1,
+        "for intervention 8": 1,
+        "for intervention 9": 0.741203700499409,
+        "for intervention 10": 1,
+        "for intervention 11": 1,
+        "for intervention 12": 0.741203700499409,
+        "for intervention 13": 1,
+        "for intervention 14": 1,
+        "for intervention 15": 1,
+        "for intervention 16": 1,
+        "for intervention 17": 1
+      },
+      "for t2 <= day# < t3": {
+        "for intervention 0": 0.926504625624261,
+        "for intervention 1": 0.926504625624261,
+        "for intervention 2": 1,
+        "for intervention 3": 1,
+        "for intervention 4": 1,
+        "for intervention 5": 1,
+        "for intervention 6": 0.926504625624261,
+        "for intervention 7": 1,
+        "for intervention 8": 1,
+        "for intervention 9": 0.926504625624261,
+        "for intervention 10": 1,
+        "for intervention 11": 1,
+        "for intervention 12": 0.926504625624261,
+        "for intervention 13": 1,
+        "for intervention 14": 1,
+        "for intervention 15": 1,
+        "for intervention 16": 1,
+        "for intervention 17": 1
+      },
+      "day# > t4": {
+        "for intervention 0": 1,
+        "for intervention 1": 1,
+        "for intervention 2": 1,
+        "for intervention 3": 1,
+        "for intervention 4": 1,
+        "for intervention 5": 1,
+        "for intervention 6": 1,
+        "for intervention 7": 1,
+        "for intervention 8": 1,
+        "for intervention 9": 1,
+        "for intervention 10": 1,
+        "for intervention 11": 1,
+        "for intervention 12": 1,
+        "for intervention 13": 1,
+        "for intervention 14": 1,
+        "for intervention 15": 1,
+        "for intervention 16": 1,
+        "for intervention 17": 1
+      }
+    },
+    "contact matrix": {
+      "for intervention 0": {
+        "from tn_group 0": {
+          "to tn_group 0": 50.7448214285714,
+          "to tn_group 1": 0,
+          "to tn_group 2": 3.85910714285714,
+          "to tn_group 3": 0
+        },
+        "from tn_group 1": {
+          "to tn_group 0": 0,
+          "to tn_group 1": 0,
+          "to tn_group 2": 32.7904590980645,
+          "to tn_group 3": 0
+        },
+        "from tn_group 2": {
+          "to tn_group 0": 0.399396125976695,
+          "to tn_group 1": 0.299628,
+          "to tn_group 2": 71.0778498271068,
+          "to tn_group 3": 0
+        },
+        "from tn_group 3": {
+          "to tn_group 0": 0,
+          "to tn_group 1": 0,
+          "to tn_group 2": 0,
+          "to tn_group 3": 0
+        }
+      },
+      "for intervention 1": {
+        "from tn_group 0": {
+          "to tn_group 0": 50.7448214285714,
+          "to tn_group 1": 0,
+          "to tn_group 2": 3.85910714285714,
+          "to tn_group 3": 0
+        },
+        "from tn_group 1": {
+          "to tn_group 0": 0,
+          "to tn_group 1": 0,
+          "to tn_group 2": 32.7904590980645,
+          "to tn_group 3": 0
+        },
+        "from tn_group 2": {
+          "to tn_group 0": 0.399396125976695,
+          "to tn_group 1": 0.299628,
+          "to tn_group 2": 71.0778498271068,
+          "to tn_group 3": 0
+        },
+        "from tn_group 3": {
+          "to tn_group 0": 0,
+          "to tn_group 1": 0,
+          "to tn_group 2": 0,
+          "to tn_group 3": 0
+        }
+      },
+      "for intervention 2": {
+        "from tn_group 0": {
+          "to tn_group 0": 31.8,
+          "to tn_group 1": 0,
+          "to tn_group 2": 0,
+          "to tn_group 3": 0
+        },
+        "from tn_group 1": {
+          "to tn_group 0": 0,
+          "to tn_group 1": 0,
+          "to tn_group 2": 0,
+          "to tn_group 3": 0
+        },
+        "from tn_group 2": {
+          "to tn_group 0": 0,
+          "to tn_group 1": 0,
+          "to tn_group 2": 3,
+          "to tn_group 3": 0
+        },
+        "from tn_group 3": {
+          "to tn_group 0": 0,
+          "to tn_group 1": 0,
+          "to tn_group 2": 0,
+          "to tn_group 3": 0
+        }
+      },
+      "for intervention 3": {
+        "from tn_group 0": {
+          "to tn_group 0": 0,
+          "to tn_group 1": 0,
+          "to tn_group 2": 0.5,
+          "to tn_group 3": 0
+        },
+        "from tn_group 1": {
+          "to tn_group 0": 0,
+          "to tn_group 1": 0,
+          "to tn_group 2": 0,
+          "to tn_group 3": 0
+        },
+        "from tn_group 2": {
+          "to tn_group 0": 0.5,
+          "to tn_group 1": 0,
+          "to tn_group 2": 0.5,
+          "to tn_group 3": 0
+        },
+        "from tn_group 3": {
+          "to tn_group 0": 0,
+          "to tn_group 1": 0,
+          "to tn_group 2": 0,
+          "to tn_group 3": 0
+        }
+      },
+      "for intervention 4": {
+        "from tn_group 0": {
+          "to tn_group 0": 31.8,
+          "to tn_group 1": 0,
+          "to tn_group 2": 0,
+          "to tn_group 3": 0
+        },
+        "from tn_group 1": {
+          "to tn_group 0": 0,
+          "to tn_group 1": 0,
+          "to tn_group 2": 0,
+          "to tn_group 3": 0
+        },
+        "from tn_group 2": {
+          "to tn_group 0": 0,
+          "to tn_group 1": 0,
+          "to tn_group 2": 3,
+          "to tn_group 3": 0
+        },
+        "from tn_group 3": {
+          "to tn_group 0": 0,
+          "to tn_group 1": 0,
+          "to tn_group 2": 0,
+          "to tn_group 3": 0
+        }
+      },
+      "for intervention 5": {
+        "from tn_group 0": {
+          "to tn_group 0": 0,
+          "to tn_group 1": 0,
+          "to tn_group 2": 0.5,
+          "to tn_group 3": 0
+        },
+        "from tn_group 1": {
+          "to tn_group 0": 0,
+          "to tn_group 1": 0,
+          "to tn_group 2": 0,
+          "to tn_group 3": 0
+        },
+        "from tn_group 2": {
+          "to tn_group 0": 0.5,
+          "to tn_group 1": 0,
+          "to tn_group 2": 0.5,
+          "to tn_group 3": 0
+        },
+        "from tn_group 3": {
+          "to tn_group 0": 0,
+          "to tn_group 1": 0,
+          "to tn_group 2": 0,
+          "to tn_group 3": 0
+        }
+      },
+      "for intervention 6": {
+        "from tn_group 0": {
+          "to tn_group 0": 50.7448214285714,
+          "to tn_group 1": 0,
+          "to tn_group 2": 3.85910714285714,
+          "to tn_group 3": 0
+        },
+        "from tn_group 1": {
+          "to tn_group 0": 0,
+          "to tn_group 1": 0,
+          "to tn_group 2": 32.7904590980645,
+          "to tn_group 3": 0
+        },
+        "from tn_group 2": {
+          "to tn_group 0": 0.399396125976695,
+          "to tn_group 1": 0.299628,
+          "to tn_group 2": 71.0778498271068,
+          "to tn_group 3": 0
+        },
+        "from tn_group 3": {
+          "to tn_group 0": 0,
+          "to tn_group 1": 0,
+          "to tn_group 2": 0,
+          "to tn_group 3": 0
+        }
+      },
+      "for intervention 7": {
+        "from tn_group 0": {
+          "to tn_group 0": 31.8,
+          "to tn_group 1": 0,
+          "to tn_group 2": 0,
+          "to tn_group 3": 0
+        },
+        "from tn_group 1": {
+          "to tn_group 0": 0,
+          "to tn_group 1": 0,
+          "to tn_group 2": 0,
+          "to tn_group 3": 0
+        },
+        "from tn_group 2": {
+          "to tn_group 0": 0,
+          "to tn_group 1": 0,
+          "to tn_group 2": 3,
+          "to tn_group 3": 0
+        },
+        "from tn_group 3": {
+          "to tn_group 0": 0,
+          "to tn_group 1": 0,
+          "to tn_group 2": 0,
+          "to tn_group 3": 0
+        }
+      },
+      "for intervention 8": {
+        "from tn_group 0": {
+          "to tn_group 0": 0,
+          "to tn_group 1": 0,
+          "to tn_group 2": 0.5,
+          "to tn_group 3": 0
+        },
+        "from tn_group 1": {
+          "to tn_group 0": 0,
+          "to tn_group 1": 0,
+          "to tn_group 2": 0,
+          "to tn_group 3": 0
+        },
+        "from tn_group 2": {
+          "to tn_group 0": 0.5,
+          "to tn_group 1": 0,
+          "to tn_group 2": 0.5,
+          "to tn_group 3": 0
+        },
+        "from tn_group 3": {
+          "to tn_group 0": 0,
+          "to tn_group 1": 0,
+          "to tn_group 2": 0,
+          "to tn_group 3": 0
+        }
+      },
+      "for intervention 9": {
+        "from tn_group 0": {
+          "to tn_group 0": 50.7448214285714,
+          "to tn_group 1": 0,
+          "to tn_group 2": 3.85910714285714,
+          "to tn_group 3": 0
+        },
+        "from tn_group 1": {
+          "to tn_group 0": 0,
+          "to tn_group 1": 0,
+          "to tn_group 2": 32.7904590980645,
+          "to tn_group 3": 0
+        },
+        "from tn_group 2": {
+          "to tn_group 0": 0.399396125976695,
+          "to tn_group 1": 0.299628,
+          "to tn_group 2": 71.0778498271068,
+          "to tn_group 3": 0
+        },
+        "from tn_group 3": {
+          "to tn_group 0": 0,
+          "to tn_group 1": 0,
+          "to tn_group 2": 0,
+          "to tn_group 3": 0
+        }
+      },
+      "for intervention 10": {
+        "from tn_group 0": {
+          "to tn_group 0": 31.8,
+          "to tn_group 1": 0,
+          "to tn_group 2": 0,
+          "to tn_group 3": 0
+        },
+        "from tn_group 1": {
+          "to tn_group 0": 0,
+          "to tn_group 1": 0,
+          "to tn_group 2": 0,
+          "to tn_group 3": 0
+        },
+        "from tn_group 2": {
+          "to tn_group 0": 0,
+          "to tn_group 1": 0,
+          "to tn_group 2": 3,
+          "to tn_group 3": 0
+        },
+        "from tn_group 3": {
+          "to tn_group 0": 0,
+          "to tn_group 1": 0,
+          "to tn_group 2": 0,
+          "to tn_group 3": 0
+        }
+      },
+      "for intervention 11": {
+        "from tn_group 0": {
+          "to tn_group 0": 0,
+          "to tn_group 1": 0,
+          "to tn_group 2": 0.5,
+          "to tn_group 3": 0
+        },
+        "from tn_group 1": {
+          "to tn_group 0": 0,
+          "to tn_group 1": 0,
+          "to tn_group 2": 0,
+          "to tn_group 3": 0
+        },
+        "from tn_group 2": {
+          "to tn_group 0": 0.5,
+          "to tn_group 1": 0,
+          "to tn_group 2": 0.5,
+          "to tn_group 3": 0
+        },
+        "from tn_group 3": {
+          "to tn_group 0": 0,
+          "to tn_group 1": 0,
+          "to tn_group 2": 0,
+          "to tn_group 3": 0
+        }
+      },
+      "for intervention 12": {
+        "from tn_group 0": {
+          "to tn_group 0": 50.7448214285714,
+          "to tn_group 1": 0,
+          "to tn_group 2": 3.85910714285714,
+          "to tn_group 3": 0
+        },
+        "from tn_group 1": {
+          "to tn_group 0": 0,
+          "to tn_group 1": 0,
+          "to tn_group 2": 32.7904590980645,
+          "to tn_group 3": 0
+        },
+        "from tn_group 2": {
+          "to tn_group 0": 0.399396125976695,
+          "to tn_group 1": 0.299628,
+          "to tn_group 2": 71.0778498271068,
+          "to tn_group 3": 0
+        },
+        "from tn_group 3": {
+          "to tn_group 0": 0,
+          "to tn_group 1": 0,
+          "to tn_group 2": 0,
+          "to tn_group 3": 0
+        }
+      },
+      "for intervention 13": {
+        "from tn_group 0": {
+          "to tn_group 0": 1,
+          "to tn_group 1": 1,
+          "to tn_group 2": 1,
+          "to tn_group 3": 1
+        },
+        "from tn_group 1": {
+          "to tn_group 0": 1,
+          "to tn_group 1": 1,
+          "to tn_group 2": 1,
+          "to tn_group 3": 1
+        },
+        "from tn_group 2": {
+          "to tn_group 0": 1,
+          "to tn_group 1": 1,
+          "to tn_group 2": 1,
+          "to tn_group 3": 1
+        },
+        "from tn_group 3": {
+          "to tn_group 0": 1,
+          "to tn_group 1": 1,
+          "to tn_group 2": 1,
+          "to tn_group 3": 1
+        }
+      },
+      "for intervention 14": {
+        "from tn_group 0": {
+          "to tn_group 0": 1,
+          "to tn_group 1": 1,
+          "to tn_group 2": 1,
+          "to tn_group 3": 1
+        },
+        "from tn_group 1": {
+          "to tn_group 0": 1,
+          "to tn_group 1": 1,
+          "to tn_group 2": 1,
+          "to tn_group 3": 1
+        },
+        "from tn_group 2": {
+          "to tn_group 0": 1,
+          "to tn_group 1": 1,
+          "to tn_group 2": 1,
+          "to tn_group 3": 1
+        },
+        "from tn_group 3": {
+          "to tn_group 0": 1,
+          "to tn_group 1": 1,
+          "to tn_group 2": 1,
+          "to tn_group 3": 1
+        }
+      },
+      "for intervention 15": {
+        "from tn_group 0": {
+          "to tn_group 0": 1,
+          "to tn_group 1": 1,
+          "to tn_group 2": 1,
+          "to tn_group 3": 1
+        },
+        "from tn_group 1": {
+          "to tn_group 0": 1,
+          "to tn_group 1": 1,
+          "to tn_group 2": 1,
+          "to tn_group 3": 1
+        },
+        "from tn_group 2": {
+          "to tn_group 0": 1,
+          "to tn_group 1": 1,
+          "to tn_group 2": 1,
+          "to tn_group 3": 1
+        },
+        "from tn_group 3": {
+          "to tn_group 0": 1,
+          "to tn_group 1": 1,
+          "to tn_group 2": 1,
+          "to tn_group 3": 1
+        }
+      },
+      "for intervention 16": {
+        "from tn_group 0": {
+          "to tn_group 0": 1,
+          "to tn_group 1": 1,
+          "to tn_group 2": 1,
+          "to tn_group 3": 1
+        },
+        "from tn_group 1": {
+          "to tn_group 0": 1,
+          "to tn_group 1": 1,
+          "to tn_group 2": 1,
+          "to tn_group 3": 1
+        },
+        "from tn_group 2": {
+          "to tn_group 0": 1,
+          "to tn_group 1": 1,
+          "to tn_group 2": 1,
+          "to tn_group 3": 1
+        },
+        "from tn_group 3": {
+          "to tn_group 0": 1,
+          "to tn_group 1": 1,
+          "to tn_group 2": 1,
+          "to tn_group 3": 1
+        }
+      },
+      "for intervention 17": {
+        "from tn_group 0": {
+          "to tn_group 0": 1,
+          "to tn_group 1": 1,
+          "to tn_group 2": 1,
+          "to tn_group 3": 1
+        },
+        "from tn_group 1": {
+          "to tn_group 0": 1,
+          "to tn_group 1": 1,
+          "to tn_group 2": 1,
+          "to tn_group 3": 1
+        },
+        "from tn_group 2": {
+          "to tn_group 0": 1,
+          "to tn_group 1": 1,
+          "to tn_group 2": 1,
+          "to tn_group 3": 1
+        },
+        "from tn_group 3": {
+          "to tn_group 0": 1,
+          "to tn_group 1": 1,
+          "to tn_group 2": 1,
+          "to tn_group 3": 1
+        }
+      }
+    }
+  },
+  "tests": {
+    "test 0": {
+      "result return time": 0,
+      "probability of positive result": {
+        "never infected": 1.0,
+        "1 <= time_infected < t0": 1.0,
+        "t0 <= time_infected < t1": 1.0,
+        "t1 <= time_infected < t2": 1.0,
+        "t2 <= time_infected < t3": 1.0,
+        "time_infected >= t3": 1.0
+      },
+      "sensitivity thresholds": {
+        "t0": 5,
+        "t1": 10,
+        "t2": 15,
+        "t3": 20
+      },
+      "delay to test": 0
+    },
+    "test 1": {
+      "result return time": 1,
+      "probability of positive result": {
+        "never infected": 0.0,
+        "1 <= time_infected < t0": 0.165,
+        "t0 <= time_infected < t1": 0.71,
+        "t1 <= time_infected < t2": 0.435,
+        "t2 <= time_infected < t3": 0,
+        "time_infected >= t3": 0
+      },
+      "sensitivity thresholds": {
+        "t0": 5,
+        "t1": 9,
+        "t2": 22,
+        "t3": 40
+      },
+      "delay to test": 0
+    },
+    "test 2": {
+      "result return time": 0,
+      "probability of positive result": {
+        "never infected": 1.0,
+        "1 <= time_infected < t0": 1.0,
+        "t0 <= time_infected < t1": 1.0,
+        "t1 <= time_infected < t2": 1.0,
+        "t2 <= time_infected < t3": 1.0,
+        "time_infected >= t3": 1.0
+      },
+      "sensitivity thresholds": {
+        "t0": 1,
+        "t1": 7,
+        "t2": 14,
+        "t3": 15
+      },
+      "delay to test": 10
+    },
+    "test 3": {
+      "result return time": 0,
+      "probability of positive result": {
+        "never infected": 1.0,
+        "1 <= time_infected < t1": 1.0,
+        "t1 <= time_infected < t2": 1.0,
+        "t2 <= time_infected < t3": 1.0,
+        "t3 <= time_infected < t4": 1.0,
+        "time_infected >= t4": 1.0
+      },
+      "sensitivity thresholds": {
+        "t0": 5,
+        "t1": 10,
+        "t2": 15,
+        "t3": 20
+      },
+      "delay to test": 0
+    },
+    "test 4": {
+      "result return time": 1,
+      "probability of positive result": {
+        "never infected": 0.0,
+        "1 <= time_infected < t1": 0.165,
+        "t1 <= time_infected < t2": 0.71,
+        "t2 <= time_infected < t3": 0.435,
+        "t3 <= time_infected < t4": 0,
+        "time_infected >= t4": 0
+      },
+      "sensitivity thresholds": {
+        "t0": 5,
+        "t1": 9,
+        "t2": 22,
+        "t3": 40
+      },
+      "delay to test": 0
+    },
+    "test 5": {
+      "result return time": 0,
+      "probability of positive result": {
+        "never infected": 1.0,
+        "1 <= time_infected < t1": 1.0,
+        "t1 <= time_infected < t2": 1.0,
+        "t2 <= time_infected < t3": 1.0,
+        "t3 <= time_infected < t4": 1.0,
+        "time_infected >= t4": 1.0
+      },
+      "sensitivity thresholds": {
+        "t0": 5,
+        "t1": 10,
+        "t2": 15,
+        "t3": 20
+      },
+      "delay to test": 10
+    },
+    "test 6": {
+      "result return time": 1,
+      "probability of positive result": {
+        "never infected": 0.0,
+        "1 <= time_infected < t1": 0.165,
+        "t1 <= time_infected < t2": 0.71,
+        "t2 <= time_infected < t3": 0.435,
+        "t3 <= time_infected < t4": 0,
+        "time_infected >= t4": 0
+      },
+      "sensitivity thresholds": {
+        "t0": 5,
+        "t1": 9,
+        "t2": 22,
+        "t3": 40
+      },
+      "delay to test": 0
+    },
+    "test 7": {
+      "result return time": 1,
+      "probability of positive result": {
+        "never infected": 0.0,
+        "1 <= time_infected < t1": 0.165,
+        "t1 <= time_infected < t2": 0.71,
+        "t2 <= time_infected < t3": 0.435,
+        "t3 <= time_infected < t4": 0,
+        "time_infected >= t4": 0
+      },
+      "sensitivity thresholds": {
+        "t0": 5,
+        "t1": 9,
+        "t2": 22,
+        "t3": 40
+      },
+      "delay to test": 0
+    }
+  },
+  "testing strategies": {
+    "intervention 0": {
+      "probability of presenting to care": {
+        "while susceptible": 1,
+        "while pre-infectious incubation": 1,
+        "while asymptomatic": 1,
+        "while mild/moderate": 1,
+        "while severe": 1,
+        "while critical": 1,
+        "while recuperation": 1,
+        "while recovered": 1
+      },
+      "switch to intervention on positive test result": {
+        "if observed no symptoms": 2,
+        "if observed mild/moderate": 2,
+        "if observed severe": 3,
+        "if observed critical": 3,
+        "if observed recuperation": 3
+      },
+      "switch to intervention on negative test result": {
+        "if observed no symptoms": 1,
+        "if observed mild/moderate": 1,
+        "if observed severe": 3,
+        "if observed critical": 3,
+        "if observed recuperation": 1
+      },
+      "test number": {
+        "if observed no symptoms": 6,
+        "if observed mild/moderate": 6,
+        "if observed severe": 6,
+        "if observed critical": 6,
+        "if observed recuperation": 6
+      },
+      "testing frequency": {
+        "if observed no symptoms": 1,
+        "if observed mild/moderate": 1,
+        "if observed severe": 1,
+        "if observed critical": 1,
+        "if observed recuperation": 1
+      },
+      "probability receive test": {
+        "if observed no symptoms": {
+            "for 0-19y": 1,
+            "for 20-59y": 1,
+            "for >=60y": 1
+          },
+          "if observed mild/moderate": {
+            "for 0-19y": 1,
+            "for 20-59y": 1,
+            "for >=60y": 1
+          },
+          "if observed severe": {
+            "for 0-19y": 1,
+            "for 20-59y": 1,
+            "for >=60y": 1
+          },
+          "if observed critical": {
+            "for 0-19y": 1,
+            "for 20-59y": 1,
+            "for >=60y": 1
+          },
+          "if observed recuperation": {
+            "for 0-19y": 1,
+            "for 20-59y": 1,
+            "for >=60y": 1
+        }
+      }
+    },
+    "intervention 1": {
+      "probability of presenting to care": {
+        "while susceptible": 1,
+        "while pre-infectious incubation": 1,
+        "while asymptomatic": 1,
+        "while mild/moderate": 1,
+        "while severe": 1,
+        "while critical": 1,
+        "while recuperation": 0,
+        "while recovered": 0
+      },
+      "switch to intervention on positive test result": {
+        "if observed no symptoms": 1,
+        "if observed mild/moderate": 1,
+        "if observed severe": 3,
+        "if observed critical": 3,
+        "if observed recuperation": 3
+      },
+      "switch to intervention on negative test result": {
+        "if observed no symptoms": 1,
+        "if observed mild/moderate": 1,
+        "if observed severe": 1,
+        "if observed critical": 1,
+        "if observed recuperation": 1
+      },
+      "test number": {
+        "if observed no symptoms": 0,
+        "if observed mild/moderate": 0,
+        "if observed severe": 0,
+        "if observed critical": 0,
+        "if observed recuperation": 0
+      },
+      "testing frequency": {
+        "if observed no symptoms": 1,
+        "if observed mild/moderate": 1,
+        "if observed severe": 1,
+        "if observed critical": 1,
+        "if observed recuperation": 1
+      },
+      "probability receive test": {
+        "if observed no symptoms": {
+            "for 0-19y": 1,
+            "for 20-59y": 1,
+            "for >=60y": 1
+          },
+          "if observed mild/moderate": {
+            "for 0-19y": 1,
+            "for 20-59y": 1,
+            "for >=60y": 1
+          },
+          "if observed severe": {
+            "for 0-19y": 1,
+            "for 20-59y": 1,
+            "for >=60y": 1
+          },
+          "if observed critical": {
+            "for 0-19y": 1,
+            "for 20-59y": 1,
+            "for >=60y": 1
+          },
+          "if observed recuperation": {
+            "for 0-19y": 1,
+            "for 20-59y": 1,
+            "for >=60y": 1
+        }
+      }
+    },
+    "intervention 2": {
+      "probability of presenting to care": {
+        "while susceptible": 1,
+        "while pre-infectious incubation": 1,
+        "while asymptomatic": 1,
+        "while mild/moderate": 1,
+        "while severe": 1,
+        "while critical": 1,
+        "while recuperation": 1,
+        "while recovered": 1
+      },
+      "switch to intervention on positive test result": {
+        "if observed no symptoms": 1,
+        "if observed mild/moderate": 1,
+        "if observed severe": 3,
+        "if observed critical": 3,
+        "if observed recuperation": 3
+      },
+      "switch to intervention on negative test result": {
+        "if observed no symptoms": 2,
+        "if observed mild/moderate": 2,
+        "if observed severe": 2,
+        "if observed critical": 2,
+        "if observed recuperation": 3
+      },
+      "test number": {
+        "if observed no symptoms": 2,
+        "if observed mild/moderate": 2,
+        "if observed severe": 0,
+        "if observed critical": 0,
+        "if observed recuperation": 2
+      },
+      "testing frequency": {
+        "if observed no symptoms": 1,
+        "if observed mild/moderate": 1,
+        "if observed severe": 1,
+        "if observed critical": 1,
+        "if observed recuperation": 1
+      },
+      "probability receive test": {
+        "if observed no symptoms": {
+            "for 0-19y": 1,
+            "for 20-59y": 1,
+            "for >=60y": 1
+          },
+          "if observed mild/moderate": {
+            "for 0-19y": 1,
+            "for 20-59y": 1,
+            "for >=60y": 1
+          },
+          "if observed severe": {
+            "for 0-19y": 1,
+            "for 20-59y": 1,
+            "for >=60y": 1
+          },
+          "if observed critical": {
+            "for 0-19y": 1,
+            "for 20-59y": 1,
+            "for >=60y": 1
+          },
+          "if observed recuperation": {
+            "for 0-19y": 1,
+            "for 20-59y": 1,
+            "for >=60y": 1
+        }
+      }
+    },
+    "intervention 3": {
+      "probability of presenting to care": {
+        "while susceptible": 1,
+        "while pre-infectious incubation": 1,
+        "while asymptomatic": 1,
+        "while mild/moderate": 1,
+        "while severe": 1,
+        "while critical": 1,
+        "while recuperation": 1,
+        "while recovered": 1
+      },
+      "switch to intervention on positive test result": {
+        "if observed no symptoms": 13,
+        "if observed mild/moderate": 13,
+        "if observed severe": 3,
+        "if observed critical": 3,
+        "if observed recuperation": 13
+      },
+      "switch to intervention on negative test result": {
+        "if observed no symptoms": 3,
+        "if observed mild/moderate": 3,
+        "if observed severe": 3,
+        "if observed critical": 3,
+        "if observed recuperation": 3
+      },
+      "test number": {
+        "if observed no symptoms": 0,
+        "if observed mild/moderate": 0,
+        "if observed severe": 0,
+        "if observed critical": 0,
+        "if observed recuperation": 0
+      },
+      "testing frequency": {
+        "if observed no symptoms": 1,
+        "if observed mild/moderate": 1,
+        "if observed severe": 1,
+        "if observed critical": 1,
+        "if observed recuperation": 1
+      },
+      "probability receive test": {
+        "if observed no symptoms": {
+            "for 0-19y": 1,
+            "for 20-59y": 1,
+            "for >=60y": 1
+          },
+          "if observed mild/moderate": {
+            "for 0-19y": 1,
+            "for 20-59y": 1,
+            "for >=60y": 1
+          },
+          "if observed severe": {
+            "for 0-19y": 1,
+            "for 20-59y": 1,
+            "for >=60y": 1
+          },
+          "if observed critical": {
+            "for 0-19y": 1,
+            "for 20-59y": 1,
+            "for >=60y": 1
+          },
+          "if observed recuperation": {
+            "for 0-19y": 1,
+            "for 20-59y": 1,
+            "for >=60y": 1
+        }
+      }
+    },
+    "intervention 4": {
+      "probability of presenting to care": {
+        "while susceptible": 1,
+        "while pre-infectious incubation": 1,
+        "while asymptomatic": 1,
+        "while mild/moderate": 1,
+        "while severe": 1,
+        "while critical": 1,
+        "while recuperation": 1,
+        "while recovered": 1
+      },
+      "switch to intervention on positive test result": {
+        "if observed no symptoms": 4,
+        "if observed mild/moderate": 4,
+        "if observed severe": 4,
+        "if observed critical": 4,
+        "if observed recuperation": 4
+      },
+      "switch to intervention on negative test result": {
+        "if observed no symptoms": 4,
+        "if observed mild/moderate": 4,
+        "if observed severe": 4,
+        "if observed critical": 4,
+        "if observed recuperation": 4
+      },
+      "test number": {
+        "if observed no symptoms": 0,
+        "if observed mild/moderate": 0,
+        "if observed severe": 0,
+        "if observed critical": 0,
+        "if observed recuperation": 0
+      },
+      "testing frequency": {
+        "if observed no symptoms": 1,
+        "if observed mild/moderate": 1,
+        "if observed severe": 1,
+        "if observed critical": 1,
+        "if observed recuperation": 1
+      },
+      "probability receive test": {
+        "if observed no symptoms": {
+            "for 0-19y": 1,
+            "for 20-59y": 1,
+            "for >=60y": 1
+          },
+          "if observed mild/moderate": {
+            "for 0-19y": 1,
+            "for 20-59y": 1,
+            "for >=60y": 1
+          },
+          "if observed severe": {
+            "for 0-19y": 1,
+            "for 20-59y": 1,
+            "for >=60y": 1
+          },
+          "if observed critical": {
+            "for 0-19y": 1,
+            "for 20-59y": 1,
+            "for >=60y": 1
+          },
+          "if observed recuperation": {
+            "for 0-19y": 1,
+            "for 20-59y": 1,
+            "for >=60y": 1
+        }
+      }
+    },
+    "intervention 5": {
+      "probability of presenting to care": {
+        "while susceptible": 1,
+        "while pre-infectious incubation": 1,
+        "while asymptomatic": 1,
+        "while mild/moderate": 1,
+        "while severe": 1,
+        "while critical": 1,
+        "while recuperation": 1,
+        "while recovered": 1
+      },
+      "switch to intervention on positive test result": {
+        "if observed no symptoms": 5,
+        "if observed mild/moderate": 5,
+        "if observed severe": 5,
+        "if observed critical": 5,
+        "if observed recuperation": 5
+      },
+      "switch to intervention on negative test result": {
+        "if observed no symptoms": 5,
+        "if observed mild/moderate": 5,
+        "if observed severe": 5,
+        "if observed critical": 5,
+        "if observed recuperation": 5
+      },
+      "test number": {
+        "if observed no symptoms": 0,
+        "if observed mild/moderate": 0,
+        "if observed severe": 0,
+        "if observed critical": 0,
+        "if observed recuperation": 0
+      },
+      "testing frequency": {
+        "if observed no symptoms": 1,
+        "if observed mild/moderate": 1,
+        "if observed severe": 1,
+        "if observed critical": 1,
+        "if observed recuperation": 1
+      },
+      "probability receive test": {
+        "if observed no symptoms": {
+            "for 0-19y": 1,
+            "for 20-59y": 1,
+            "for >=60y": 1
+          },
+          "if observed mild/moderate": {
+            "for 0-19y": 1,
+            "for 20-59y": 1,
+            "for >=60y": 1
+          },
+          "if observed severe": {
+            "for 0-19y": 1,
+            "for 20-59y": 1,
+            "for >=60y": 1
+          },
+          "if observed critical": {
+            "for 0-19y": 1,
+            "for 20-59y": 1,
+            "for >=60y": 1
+          },
+          "if observed recuperation": {
+            "for 0-19y": 1,
+            "for 20-59y": 1,
+            "for >=60y": 1
+        }
+      }
+    },
+    "intervention 6": {
+      "probability of presenting to care": {
+        "while susceptible": 1,
+        "while pre-infectious incubation": 1,
+        "while asymptomatic": 1,
+        "while mild/moderate": 1,
+        "while severe": 1,
+        "while critical": 1,
+        "while recuperation": 0,
+        "while recovered": 0
+      },
+      "switch to intervention on positive test result": {
+        "if observed no symptoms": 6,
+        "if observed mild/moderate": 7,
+        "if observed severe": 8,
+        "if observed critical": 8,
+        "if observed recuperation": 8
+      },
+      "switch to intervention on negative test result": {
+        "if observed no symptoms": 6,
+        "if observed mild/moderate": 6,
+        "if observed severe": 6,
+        "if observed critical": 6,
+        "if observed recuperation": 6
+      },
+      "test number": {
+        "if observed no symptoms": 0,
+        "if observed mild/moderate": 0,
+        "if observed severe": 0,
+        "if observed critical": 0,
+        "if observed recuperation": 0
+      },
+      "testing frequency": {
+        "if observed no symptoms": 1,
+        "if observed mild/moderate": 1,
+        "if observed severe": 1,
+        "if observed critical": 1,
+        "if observed recuperation": 1
+      },
+      "probability receive test": {
+        "if observed no symptoms": {
+          "for 0-19y": 0,
+          "for 20-59y": 1,
+          "for >=60y": 1
+        },
+        "if observed mild/moderate": {
+          "for 0-19y": 0,
+          "for 20-59y": 1,
+          "for >=60y": 1
+        },
+        "if observed severe": {
+          "for 0-19y": 0,
+          "for 20-59y": 1,
+          "for >=60y": 1
+        },
+        "if observed critical": {
+          "for 0-19y": 0,
+          "for 20-59y": 1,
+          "for >=60y": 1
+        },
+        "if observed recuperation": {
+          "for 0-19y": 0,
+          "for 20-59y": 1,
+          "for >=60y": 1
+        }
+      }
+    },
+    "intervention 7": {
+      "probability of presenting to care": {
+        "while susceptible": 1,
+        "while pre-infectious incubation": 1,
+        "while asymptomatic": 1,
+        "while mild/moderate": 1,
+        "while severe": 1,
+        "while critical": 1,
+        "while recuperation": 1,
+        "while recovered": 1
+      },
+      "switch to intervention on positive test result": {
+        "if observed no symptoms": 14,
+        "if observed mild/moderate": 14,
+        "if observed severe": 8,
+        "if observed critical": 8,
+        "if observed recuperation": 8
+      },
+      "switch to intervention on negative test result": {
+        "if observed no symptoms": 16,
+        "if observed mild/moderate": 16,
+        "if observed severe": 16,
+        "if observed critical": 16,
+        "if observed recuperation": 16
+      },
+        "test number": {
+          "if observed no symptoms": 5,
+          "if observed mild/moderate": 5,
+          "if observed severe": 0,
+          "if observed critical": 0,
+          "if observed recuperation": 5
+        },
+        "testing frequency": {
+          "if observed no symptoms": 15,
+          "if observed mild/moderate": 15,
+          "if observed severe": 1,
+          "if observed critical": 1,
+          "if observed recuperation": 15
+      },
+      "probability receive test": {
+        "if observed no symptoms": {
+          "for 0-19y": 0,
+          "for 20-59y": 1,
+          "for >=60y": 1
+        },
+        "if observed mild/moderate": {
+          "for 0-19y": 0,
+          "for 20-59y": 1,
+          "for >=60y": 1
+        },
+        "if observed severe": {
+          "for 0-19y": 0,
+          "for 20-59y": 1,
+          "for >=60y": 1
+        },
+        "if observed critical": {
+          "for 0-19y": 0,
+          "for 20-59y": 1,
+          "for >=60y": 1
+        },
+        "if observed recuperation": {
+          "for 0-19y": 0,
+          "for 20-59y": 1,
+          "for >=60y": 1
+        }
+      }
+    },
+    "intervention 8": {
+      "probability of presenting to care": {
+        "while susceptible": 1,
+        "while pre-infectious incubation": 1,
+        "while asymptomatic": 1,
+        "while mild/moderate": 1,
+        "while severe": 1,
+        "while critical": 1,
+        "while recuperation": 1,
+        "while recovered": 1
+      },
+      "switch to intervention on positive test result": {
+        "if observed no symptoms": 14,
+        "if observed mild/moderate": 14,
+        "if observed severe": 8,
+        "if observed critical": 8,
+        "if observed recuperation": 8
+      },
+      "switch to intervention on negative test result": {
+        "if observed no symptoms": 8,
+        "if observed mild/moderate": 8,
+        "if observed severe": 8,
+        "if observed critical": 8,
+        "if observed recuperation": 8
+      },
+      "test number": {
+        "if observed no symptoms": 0,
+        "if observed mild/moderate": 0,
+        "if observed severe": 0,
+        "if observed critical": 0,
+        "if observed recuperation": 0
+      },
+      "testing frequency": {
+        "if observed no symptoms": 1,
+        "if observed mild/moderate": 1,
+        "if observed severe": 1,
+        "if observed critical": 1,
+        "if observed recuperation": 1
+      },
+      "probability receive test": {
+        "if observed no symptoms": {
+          "for 0-19y": 0,
+          "for 20-59y": 1,
+          "for >=60y": 1
+        },
+        "if observed mild/moderate": {
+          "for 0-19y": 0,
+          "for 20-59y": 1,
+          "for >=60y": 1
+        },
+        "if observed severe": {
+          "for 0-19y": 0,
+          "for 20-59y": 1,
+          "for >=60y": 1
+        },
+        "if observed critical": {
+          "for 0-19y": 0,
+          "for 20-59y": 1,
+          "for >=60y": 1
+        },
+        "if observed recuperation": {
+          "for 0-19y": 0,
+          "for 20-59y": 1,
+          "for >=60y": 1
+        }
+      }
+    },
+    "intervention 9": {
+      "probability of presenting to care": {
+        "while susceptible": 1,
+        "while pre-infectious incubation": 1,
+        "while asymptomatic": 1,
+        "while mild/moderate": 1,
+        "while severe": 1,
+        "while critical": 1,
+        "while recuperation": 0,
+        "while recovered": 0
+      },
+      "switch to intervention on positive test result": {
+        "if observed no symptoms": 9,
+        "if observed mild/moderate": 10,
+        "if observed severe": 11,
+        "if observed critical": 11,
+        "if observed recuperation": 11
+      },
+      "switch to intervention on negative test result": {
+        "if observed no symptoms": 9,
+        "if observed mild/moderate": 9,
+        "if observed severe": 9,
+        "if observed critical": 9,
+        "if observed recuperation": 9
+      },
+      "test number": {
+        "if observed no symptoms": 0,
+        "if observed mild/moderate": 0,
+        "if observed severe": 0,
+        "if observed critical": 0,
+        "if observed recuperation": 0
+      },
+      "testing frequency": {
+        "if observed no symptoms": 1,
+        "if observed mild/moderate": 1,
+        "if observed severe": 1,
+        "if observed critical": 1,
+        "if observed recuperation": 1
+      },
+      "probability receive test": {
+        "if observed no symptoms": {
+          "for 0-19y": 0,
+          "for 20-59y": 1,
+          "for >=60y": 1
+        },
+        "if observed mild/moderate": {
+          "for 0-19y": 0,
+          "for 20-59y": 1,
+          "for >=60y": 1
+        },
+        "if observed severe": {
+          "for 0-19y": 0,
+          "for 20-59y": 1,
+          "for >=60y": 1
+        },
+        "if observed critical": {
+          "for 0-19y": 0,
+          "for 20-59y": 1,
+          "for >=60y": 1
+        },
+        "if observed recuperation": {
+          "for 0-19y": 0,
+          "for 20-59y": 1,
+          "for >=60y": 1
+        }
+      }
+    },
+    "intervention 10": {
+      "probability of presenting to care": {
+        "while susceptible": 1,
+        "while pre-infectious incubation": 1,
+        "while asymptomatic": 1,
+        "while mild/moderate": 1,
+        "while severe": 1,
+        "while critical": 1,
+        "while recuperation": 1,
+        "while recovered": 1
+      },
+      "switch to intervention on positive test result": {
+        "if observed no symptoms": 9,
+        "if observed mild/moderate": 10,
+        "if observed severe": 11,
+        "if observed critical": 11,
+        "if observed recuperation": 11
+      },
+      "switch to intervention on negative test result": {
+        "if observed no symptoms": 10,
+        "if observed mild/moderate": 10,
+        "if observed severe": 10,
+        "if observed critical": 10,
+        "if observed recuperation": 10
+      },
+      "test number": {
+        "if observed no symptoms": 0,
+        "if observed mild/moderate": 0,
+        "if observed severe": 0,
+        "if observed critical": 0,
+        "if observed recuperation": 0
+      },
+      "testing frequency": {
+        "if observed no symptoms": 1,
+        "if observed mild/moderate": 1,
+        "if observed severe": 1,
+        "if observed critical": 1,
+        "if observed recuperation": 1
+      },
+      "probability receive test": {
+        "if observed no symptoms": {
+          "for 0-19y": 0,
+          "for 20-59y": 1,
+          "for >=60y": 1
+        },
+        "if observed mild/moderate": {
+          "for 0-19y": 0,
+          "for 20-59y": 1,
+          "for >=60y": 1
+        },
+        "if observed severe": {
+          "for 0-19y": 0,
+          "for 20-59y": 1,
+          "for >=60y": 1
+        },
+        "if observed critical": {
+          "for 0-19y": 0,
+          "for 20-59y": 1,
+          "for >=60y": 1
+        },
+        "if observed recuperation": {
+          "for 0-19y": 0,
+          "for 20-59y": 1,
+          "for >=60y": 1
+        }
+      }
+    },
+    "intervention 11": {
+      "probability of presenting to care": {
+        "while susceptible": 1,
+        "while pre-infectious incubation": 1,
+        "while asymptomatic": 1,
+        "while mild/moderate": 1,
+        "while severe": 1,
+        "while critical": 1,
+        "while recuperation": 1,
+        "while recovered": 1
+      },
+      "switch to intervention on positive test result": {
+        "if observed no symptoms": 9,
+        "if observed mild/moderate": 10,
+        "if observed severe": 11,
+        "if observed critical": 11,
+        "if observed recuperation": 11
+      },
+      "switch to intervention on negative test result": {
+        "if observed no symptoms": 11,
+        "if observed mild/moderate": 11,
+        "if observed severe": 11,
+        "if observed critical": 11,
+        "if observed recuperation": 11
+      },
+      "test number": {
+        "if observed no symptoms": 0,
+        "if observed mild/moderate": 0,
+        "if observed severe": 0,
+        "if observed critical": 0,
+        "if observed recuperation": 0
+      },
+      "testing frequency": {
+        "if observed no symptoms": 1,
+        "if observed mild/moderate": 1,
+        "if observed severe": 1,
+        "if observed critical": 1,
+        "if observed recuperation": 1
+      },
+      "probability receive test": {
+        "if observed no symptoms": {
+          "for 0-19y": 0,
+          "for 20-59y": 1,
+          "for >=60y": 1
+        },
+        "if observed mild/moderate": {
+          "for 0-19y": 0,
+          "for 20-59y": 1,
+          "for >=60y": 1
+        },
+        "if observed severe": {
+          "for 0-19y": 0,
+          "for 20-59y": 1,
+          "for >=60y": 1
+        },
+        "if observed critical": {
+          "for 0-19y": 0,
+          "for 20-59y": 1,
+          "for >=60y": 1
+        },
+        "if observed recuperation": {
+          "for 0-19y": 0,
+          "for 20-59y": 1,
+          "for >=60y": 1
+        }
+      }
+    },
+    "intervention 12": {
+      "probability of presenting to care": {
+        "while susceptible": 1,
+        "while pre-infectious incubation": 1,
+        "while asymptomatic": 1,
+        "while mild/moderate": 1,
+        "while severe": 1,
+        "while critical": 1,
+        "while recuperation": 1,
+        "while recovered": 1
+      },
+      "switch to intervention on positive test result": {
+        "if observed no symptoms": 7,
+        "if observed mild/moderate": 7,
+        "if observed severe": 8,
+        "if observed critical": 8,
+        "if observed recuperation": 8
+      },
+      "switch to intervention on negative test result": {
+        "if observed no symptoms": 6,
+        "if observed mild/moderate": 6,
+        "if observed severe": 8,
+        "if observed critical": 8,
+        "if observed recuperation": 6
+      },
+      "test number": {
+        "if observed no symptoms": 7,
+        "if observed mild/moderate": 7,
+        "if observed severe": 7,
+        "if observed critical": 7,
+        "if observed recuperation": 7
+      },
+      "testing frequency": {
+        "if observed no symptoms": 1,
+        "if observed mild/moderate": 1,
+        "if observed severe": 1,
+        "if observed critical": 1,
+        "if observed recuperation": 1
+      },
+      "probability receive test": {
+        "if observed no symptoms": {
+          "for 0-19y": 1,
+          "for 20-59y": 1,
+          "for >=60y": 1
+        },
+        "if observed mild/moderate": {
+          "for 0-19y": 1,
+          "for 20-59y": 1,
+          "for >=60y": 1
+        },
+        "if observed severe": {
+          "for 0-19y": 1,
+          "for 20-59y": 1,
+          "for >=60y": 1
+        },
+        "if observed critical": {
+          "for 0-19y": 1,
+          "for 20-59y": 1,
+          "for >=60y": 1
+        },
+        "if observed recuperation": {
+          "for 0-19y": 1,
+          "for 20-59y": 1,
+          "for >=60y": 1
+        }
+      }
+    },
+    "intervention 13": {
+      "probability of presenting to care": {
+        "while susceptible": 0,
+        "while pre-infectious incubation": 0,
+        "while asymptomatic": 0,
+        "while mild/moderate": 0,
+        "while severe": 0,
+        "while critical": 0,
+        "while recuperation": 0,
+        "while recovered": 0
+      },
+      "switch to intervention on positive test result": {
+        "if observed no symptoms": 13,
+        "if observed mild/moderate": 13,
+        "if observed severe": 13,
+        "if observed critical": 13,
+        "if observed recuperation": 13
+      },
+      "switch to intervention on negative test result": {
+        "if observed no symptoms": 13,
+        "if observed mild/moderate": 13,
+        "if observed severe": 13,
+        "if observed critical": 13,
+        "if observed recuperation": 13
+      },
+      "test number": {
+        "if observed no symptoms": 0,
+        "if observed mild/moderate": 0,
+        "if observed severe": 0,
+        "if observed critical": 0,
+        "if observed recuperation": 0
+      },
+      "testing frequency": {
+        "if observed no symptoms": 1,
+        "if observed mild/moderate": 1,
+        "if observed severe": 1,
+        "if observed critical": 1,
+        "if observed recuperation": 1
+      },
+      "probability receive test": {
+        "if observed no symptoms": {
+          "for 0-19y": 0,
+          "for 20-59y": 0,
+          "for >=60y": 0
+        },
+        "if observed mild/moderate": {
+          "for 0-19y": 0,
+          "for 20-59y": 0,
+          "for >=60y": 0
+        },
+        "if observed severe": {
+          "for 0-19y": 0,
+          "for 20-59y": 0,
+          "for >=60y": 0
+        },
+        "if observed critical": {
+          "for 0-19y": 0,
+          "for 20-59y": 0,
+          "for >=60y": 0
+        },
+        "if observed recuperation": {
+          "for 0-19y": 0,
+          "for 20-59y": 0,
+          "for >=60y": 0
+        }
+      }
+    },
+    "intervention 14": {
+      "probability of presenting to care": {
+        "while susceptible": 0,
+        "while pre-infectious incubation": 0,
+        "while asymptomatic": 0,
+        "while mild/moderate": 0,
+        "while severe": 0,
+        "while critical": 0,
+        "while recuperation": 0,
+        "while recovered": 0
+      },
+      "switch to intervention on positive test result": {
+        "if observed no symptoms": 14,
+        "if observed mild/moderate": 14,
+        "if observed severe": 14,
+        "if observed critical": 14,
+        "if observed recuperation": 14
+      },
+      "switch to intervention on negative test result": {
+        "if observed no symptoms": 14,
+        "if observed mild/moderate": 14,
+        "if observed severe": 14,
+        "if observed critical": 14,
+        "if observed recuperation": 14
+      },
+      "test number": {
+        "if observed no symptoms": 0,
+        "if observed mild/moderate": 0,
+        "if observed severe": 0,
+        "if observed critical": 0,
+        "if observed recuperation": 0
+      },
+      "testing frequency": {
+        "if observed no symptoms": 1,
+        "if observed mild/moderate": 1,
+        "if observed severe": 1,
+        "if observed critical": 1,
+        "if observed recuperation": 1
+      },
+      "probability receive test": {
+        "if observed no symptoms": {
+          "for 0-19y": 0,
+          "for 20-59y": 0,
+          "for >=60y": 0
+        },
+        "if observed mild/moderate": {
+          "for 0-19y": 0,
+          "for 20-59y": 0,
+          "for >=60y": 0
+        },
+        "if observed severe": {
+          "for 0-19y": 0,
+          "for 20-59y": 0,
+          "for >=60y": 0
+        },
+        "if observed critical": {
+          "for 0-19y": 0,
+          "for 20-59y": 0,
+          "for >=60y": 0
+        },
+        "if observed recuperation": {
+          "for 0-19y": 0,
+          "for 20-59y": 0,
+          "for >=60y": 0
+        }
+      }
+    },
+    "intervention 15": {
+      "probability of presenting to care": {
+        "while susceptible": 0,
+        "while pre-infectious incubation": 0,
+        "while asymptomatic": 0,
+        "while mild/moderate": 0,
+        "while severe": 0,
+        "while critical": 0,
+        "while recuperation": 0,
+        "while recovered": 0
+      },
+      "switch to intervention on positive test result": {
+        "if observed no symptoms": 15,
+        "if observed mild/moderate": 15,
+        "if observed severe": 15,
+        "if observed critical": 15,
+        "if observed recuperation": 15
+      },
+      "switch to intervention on negative test result": {
+        "if observed no symptoms": 15,
+        "if observed mild/moderate": 15,
+        "if observed severe": 15,
+        "if observed critical": 15,
+        "if observed recuperation": 15
+      },
+      "test number": {
+        "if observed no symptoms": 0,
+        "if observed mild/moderate": 0,
+        "if observed severe": 0,
+        "if observed critical": 0,
+        "if observed recuperation": 0
+      },
+      "testing frequency": {
+        "if observed no symptoms": 1,
+        "if observed mild/moderate": 1,
+        "if observed severe": 1,
+        "if observed critical": 1,
+        "if observed recuperation": 1
+      },
+      "probability receive test": {
+        "if observed no symptoms": {
+          "for 0-19y": 0,
+          "for 20-59y": 0,
+          "for >=60y": 0
+        },
+        "if observed mild/moderate": {
+          "for 0-19y": 0,
+          "for 20-59y": 0,
+          "for >=60y": 0
+        },
+        "if observed severe": {
+          "for 0-19y": 0,
+          "for 20-59y": 0,
+          "for >=60y": 0
+        },
+        "if observed critical": {
+          "for 0-19y": 0,
+          "for 20-59y": 0,
+          "for >=60y": 0
+        },
+        "if observed recuperation": {
+          "for 0-19y": 0,
+          "for 20-59y": 0,
+          "for >=60y": 0
+        }
+      }
+    },
+    "intervention 16": {
+      "probability of presenting to care": {
+        "while susceptible": 0,
+        "while pre-infectious incubation": 0,
+        "while asymptomatic": 0,
+        "while mild/moderate": 0,
+        "while severe": 0,
+        "while critical": 0,
+        "while recuperation": 0,
+        "while recovered": 0
+      },
+      "switch to intervention on positive test result": {
+        "if observed no symptoms": 16,
+        "if observed mild/moderate": 16,
+        "if observed severe": 16,
+        "if observed critical": 16,
+        "if observed recuperation": 16
+      },
+      "switch to intervention on negative test result": {
+        "if observed no symptoms": 16,
+        "if observed mild/moderate": 16,
+        "if observed severe": 16,
+        "if observed critical": 16,
+        "if observed recuperation": 16
+      },
+      "test number": {
+        "if observed no symptoms": 0,
+        "if observed mild/moderate": 0,
+        "if observed severe": 0,
+        "if observed critical": 0,
+        "if observed recuperation": 0
+      },
+      "testing frequency": {
+        "if observed no symptoms": 1,
+        "if observed mild/moderate": 1,
+        "if observed severe": 1,
+        "if observed critical": 1,
+        "if observed recuperation": 1
+      },
+      "probability receive test": {
+        "if observed no symptoms": {
+          "for 0-19y": 0,
+          "for 20-59y": 0,
+          "for >=60y": 0
+        },
+        "if observed mild/moderate": {
+          "for 0-19y": 0,
+          "for 20-59y": 0,
+          "for >=60y": 0
+        },
+        "if observed severe": {
+          "for 0-19y": 0,
+          "for 20-59y": 0,
+          "for >=60y": 0
+        },
+        "if observed critical": {
+          "for 0-19y": 0,
+          "for 20-59y": 0,
+          "for >=60y": 0
+        },
+        "if observed recuperation": {
+          "for 0-19y": 0,
+          "for 20-59y": 0,
+          "for >=60y": 0
+        }
+      }
+    },
+    "intervention 17": {
+      "probability of presenting to care": {
+        "while susceptible": 0,
+        "while pre-infectious incubation": 0,
+        "while asymptomatic": 0,
+        "while mild/moderate": 0,
+        "while severe": 0,
+        "while critical": 0,
+        "while recuperation": 0,
+        "while recovered": 0
+      },
+      "switch to intervention on positive test result": {
+        "if observed no symptoms": 17,
+        "if observed mild/moderate": 17,
+        "if observed severe": 17,
+        "if observed critical": 17,
+        "if observed recuperation": 17
+      },
+      "switch to intervention on negative test result": {
+        "if observed no symptoms": 17,
+        "if observed mild/moderate": 17,
+        "if observed severe": 17,
+        "if observed critical": 17,
+        "if observed recuperation": 17
+      },
+      "test number": {
+        "if observed no symptoms": 0,
+        "if observed mild/moderate": 0,
+        "if observed severe": 0,
+        "if observed critical": 0,
+        "if observed recuperation": 0
+      },
+      "testing frequency": {
+        "if observed no symptoms": 1,
+        "if observed mild/moderate": 1,
+        "if observed severe": 1,
+        "if observed critical": 1,
+        "if observed recuperation": 1
+      },
+      "probability receive test": {
+        "if observed no symptoms": {
+          "for 0-19y": 0,
+          "for 20-59y": 0,
+          "for >=60y": 0
+        },
+        "if observed mild/moderate": {
+          "for 0-19y": 0,
+          "for 20-59y": 0,
+          "for >=60y": 0
+        },
+        "if observed severe": {
+          "for 0-19y": 0,
+          "for 20-59y": 0,
+          "for >=60y": 0
+        },
+        "if observed critical": {
+          "for 0-19y": 0,
+          "for 20-59y": 0,
+          "for >=60y": 0
+        },
+        "if observed recuperation": {
+          "for 0-19y": 0,
+          "for 20-59y": 0,
+          "for >=60y": 0
+        }
+      }
+    }
+  },
+  "costs": {
+    "testing costs": {
+      "test 0": 0.0,
+      "test 1": 36.0,
+      "test 2": 0.0,
+      "test 3": 0.0,
+      "test 4": 0.0,
+      "test 5": 0.0,
+      "test 6": 0.0,
+      "test 7": 0.0
+    },
+    "daily intervention costs": {
+      "intervention 0": {
+        "if observed no symptoms": 0.0,
+        "if observed mild/moderate": 0.0,
+        "if observed severe": 0.0,
+        "if observed critical": 0.0,
+        "if observed recuperation": 0.0
+      },
+      "intervention 1": {
+        "if observed no symptoms": 0.0,
+        "if observed mild/moderate": 0.0,
+        "if observed severe": 0.0,
+        "if observed critical": 0.0,
+        "if observed recuperation": 0.0
+      },
+      "intervention 2": {
+        "if observed no symptoms": 0.0,
+        "if observed mild/moderate": 0.0,
+        "if observed severe": 0.0,
+        "if observed critical": 0.0,
+        "if observed recuperation": 0.0
+      },
+      "intervention 3": {
+        "if observed no symptoms": 1641.0,
+        "if observed mild/moderate": 1641.0,
+        "if observed severe": 1641.0,
+        "if observed critical": 2683.0,
+        "if observed recuperation": 1641.0
+      },
+      "intervention 4": {
+        "if observed no symptoms": 0.0,
+        "if observed mild/moderate": 0.0,
+        "if observed severe": 0.0,
+        "if observed critical": 0.0,
+        "if observed recuperation": 0.0
+      },
+      "intervention 5": {
+        "if observed no symptoms": 1641.0,
+        "if observed mild/moderate": 1641.0,
+        "if observed severe": 1641.0,
+        "if observed critical": 2683.0,
+        "if observed recuperation": 1641.0
+      },
+      "intervention 6": {
+        "if observed no symptoms": 0.0,
+        "if observed mild/moderate": 0.0,
+        "if observed severe": 0.0,
+        "if observed critical": 0.0,
+        "if observed recuperation": 0.0
+      },
+      "intervention 7": {
+        "if observed no symptoms": 0.0,
+        "if observed mild/moderate": 0.0,
+        "if observed severe": 0.0,
+        "if observed critical": 0.0,
+        "if observed recuperation": 0.0
+      },
+      "intervention 8": {
+        "if observed no symptoms": 1641.0,
+        "if observed mild/moderate": 1641.0,
+        "if observed severe": 1641.0,
+        "if observed critical": 2683.0,
+        "if observed recuperation": 1641.0
+      },
+      "intervention 9": {
+        "if observed no symptoms": 0.0,
+        "if observed mild/moderate": 0.0,
+        "if observed severe": 0.0,
+        "if observed critical": 0.0,
+        "if observed recuperation": 0.0
+      },
+      "intervention 10": {
+        "if observed no symptoms": 0.0,
+        "if observed mild/moderate": 0.0,
+        "if observed severe": 0.0,
+        "if observed critical": 0.0,
+        "if observed recuperation": 0.0
+      },
+      "intervention 11": {
+        "if observed no symptoms": 1641.0,
+        "if observed mild/moderate": 1641.0,
+        "if observed severe": 1641.0,
+        "if observed critical": 2683.0,
+        "if observed recuperation": 1641.0
+      },
+      "intervention 12": {
+        "if observed no symptoms": 0.0,
+        "if observed mild/moderate": 0.0,
+        "if observed severe": 0.0,
+        "if observed critical": 0.0,
+        "if observed recuperation": 0.0
+      },
+      "intervention 13": {
+        "if observed no symptoms": 0.0,
+        "if observed mild/moderate": 0.0,
+        "if observed severe": 0.0,
+        "if observed critical": 0.0,
+        "if observed recuperation": 0.0
+      },
+      "intervention 14": {
+        "if observed no symptoms": 0.0,
+        "if observed mild/moderate": 0.0,
+        "if observed severe": 0.0,
+        "if observed critical": 0.0,
+        "if observed recuperation": 0.0
+      },
+      "intervention 15": {
+        "if observed no symptoms": 0.0,
+        "if observed mild/moderate": 0.0,
+        "if observed severe": 0.0,
+        "if observed critical": 0.0,
+        "if observed recuperation": 0.0
+      },
+      "intervention 16": {
+        "if observed no symptoms": 0.0,
+        "if observed mild/moderate": 0.0,
+        "if observed severe": 0.0,
+        "if observed critical": 0.0,
+        "if observed recuperation": 0.0
+      },
+      "intervention 17": {
+        "if observed no symptoms": 0.0,
+        "if observed mild/moderate": 0.0,
+        "if observed severe": 0.0,
+        "if observed critical": 0.0,
+        "if observed recuperation": 0.0
+      }
+    },
+    "mortality costs": {
+      "intervention 0": 0.0,
+      "intervention 1": 0.0,
+      "intervention 2": 0.0,
+      "intervention 3": 0.0,
+      "intervention 4": 0.0,
+      "intervention 5": 0.0,
+      "intervention 6": 0.0,
+      "intervention 7": 0.0,
+      "intervention 8": 0.0,
+      "intervention 9": 0.0,
+      "intervention 10": 0.0,
+      "intervention 11": 0.0,
+      "intervention 12": 0.0,
+      "intervention 13": 0.0,
+      "intervention 14": 0.0,
+      "intervention 15": 0.0,
+      "intervention 16": 0.0,
+      "intervention 17": 0.0
+    }
+  },
+  "resources": {
+    "resource availabilities": {
+        "resource 0": 10000000,
+        "resource 1": 10000000,
+        "resource 2": 10000000,
+        "resource 3": 10000000,
+        "resource 4": 10000000,
+        "resource 5": 10000000,
+        "resource 6": 10000000,
+        "resource 7": 10000000
+    },
+    "resource requirements": {
+      "for intervention 0": {
+        "if observed no symptoms": [0],
+        "if observed mild/moderate": [0],
+        "if observed severe": [0],
+        "if observed critical": [0],
+        "if observed recuperation": [0]
+      },
+      "for intervention 1": {
+        "if observed no symptoms": [0],
+        "if observed mild/moderate": [0],
+        "if observed severe": [0],
+        "if observed critical": [0],
+        "if observed recuperation": [0]
+      },
+      "for intervention 2": {
+        "if observed no symptoms": [0],
+        "if observed mild/moderate": [0],
+        "if observed severe": [0],
+        "if observed critical": [0],
+        "if observed recuperation": [0]
+      },
+      "for intervention 3": {
+        "if observed no symptoms": [0],
+        "if observed mild/moderate": [0],
+        "if observed severe": [0],
+        "if observed critical": [0],
+        "if observed recuperation": [0]
+      },
+      "for intervention 4": {
+        "if observed no symptoms": [0],
+        "if observed mild/moderate": [0],
+        "if observed severe": [0],
+        "if observed critical": [0],
+        "if observed recuperation": [0]
+      },
+      "for intervention 5": {
+        "if observed no symptoms": [0],
+        "if observed mild/moderate": [0],
+        "if observed severe": [0],
+        "if observed critical": [0],
+        "if observed recuperation": [0]
+      },
+      "for intervention 6": {
+        "if observed no symptoms": [0],
+        "if observed mild/moderate": [0],
+        "if observed severe": [0],
+        "if observed critical": [0],
+        "if observed recuperation": [0]
+      },
+      "for intervention 7": {
+        "if observed no symptoms": [0],
+        "if observed mild/moderate": [0],
+        "if observed severe": [0],
+        "if observed critical": [0],
+        "if observed recuperation": [0]
+      },
+      "for intervention 8": {
+        "if observed no symptoms": [0],
+        "if observed mild/moderate": [0],
+        "if observed severe": [0],
+        "if observed critical": [0],
+        "if observed recuperation": [0]
+      },
+      "for intervention 9": {
+        "if observed no symptoms": [0],
+        "if observed mild/moderate": [0],
+        "if observed severe": [0],
+        "if observed critical": [0],
+        "if observed recuperation": [0]
+      },
+      "for intervention 10": {
+        "if observed no symptoms": [0],
+        "if observed mild/moderate": [0],
+        "if observed severe": [0],
+        "if observed critical": [0],
+        "if observed recuperation": [0]
+      },
+      "for intervention 11": {
+        "if observed no symptoms": [0],
+        "if observed mild/moderate": [0],
+        "if observed severe": [0],
+        "if observed critical": [0],
+        "if observed recuperation": [0]
+      },
+      "for intervention 12": {
+        "if observed no symptoms": [0],
+        "if observed mild/moderate": [0],
+        "if observed severe": [0],
+        "if observed critical": [0],
+        "if observed recuperation": [0]
+      },
+      "for intervention 13": {
+        "if observed no symptoms": [0],
+        "if observed mild/moderate": [0],
+        "if observed severe": [0],
+        "if observed critical": [0],
+        "if observed recuperation": [0]
+      },
+      "for intervention 14": {
+        "if observed no symptoms": [0],
+        "if observed mild/moderate": [0],
+        "if observed severe": [0],
+        "if observed critical": [0],
+        "if observed recuperation": [0]
+      },
+      "for intervention 15": {
+        "if observed no symptoms": [0],
+        "if observed mild/moderate": [0],
+        "if observed severe": [0],
+        "if observed critical": [0],
+        "if observed recuperation": [0]
+      },
+      "for intervention 16": {
+        "if observed no symptoms": [0],
+        "if observed mild/moderate": [0],
+        "if observed severe": [0],
+        "if observed critical": [0],
+        "if observed recuperation": [0]
+      },
+      "for intervention 17": {
+        "if observed no symptoms": [0],
+        "if observed mild/moderate": [0],
+        "if observed severe": [0],
+        "if observed critical": [0],
+        "if observed recuperation": [0]
+      }
+    },
+    "back-up interventions": {
+      "for intervention 0": {
+        "if observed no symptoms": 0,
+        "if observed mild/moderate": 0,
+        "if observed severe": 0,
+        "if observed critical": 0,
+        "if observed recuperation": 0
+      },
+      "for intervention 1": {
+        "if observed no symptoms": 0,
+        "if observed mild/moderate": 0,
+        "if observed severe": 0,
+        "if observed critical": 0,
+        "if observed recuperation": 0
+      },
+      "for intervention 2": {
+        "if observed no symptoms": 0,
+        "if observed mild/moderate": 0,
+        "if observed severe": 0,
+        "if observed critical": 0,
+        "if observed recuperation": 0
+      },
+      "for intervention 3": {
+        "if observed no symptoms": 0,
+        "if observed mild/moderate": 0,
+        "if observed severe": 0,
+        "if observed critical": 0,
+        "if observed recuperation": 0
+      },
+      "for intervention 4": {
+        "if observed no symptoms": 0,
+        "if observed mild/moderate": 0,
+        "if observed severe": 0,
+        "if observed critical": 0,
+        "if observed recuperation": 0
+      },
+      "for intervention 5": {
+        "if observed no symptoms": 0,
+        "if observed mild/moderate": 0,
+        "if observed severe": 0,
+        "if observed critical": 0,
+        "if observed recuperation": 0
+      },
+      "for intervention 6": {
+        "if observed no symptoms": 0,
+        "if observed mild/moderate": 0,
+        "if observed severe": 0,
+        "if observed critical": 0,
+        "if observed recuperation": 0
+      },
+      "for intervention 7": {
+        "if observed no symptoms": 0,
+        "if observed mild/moderate": 0,
+        "if observed severe": 0,
+        "if observed critical": 0,
+        "if observed recuperation": 0
+      },
+      "for intervention 8": {
+        "if observed no symptoms": 0,
+        "if observed mild/moderate": 0,
+        "if observed severe": 0,
+        "if observed critical": 0,
+        "if observed recuperation": 0
+      },
+      "for intervention 9": {
+        "if observed no symptoms": 0,
+        "if observed mild/moderate": 0,
+        "if observed severe": 0,
+        "if observed critical": 0,
+        "if observed recuperation": 0
+      },
+      "for intervention 10": {
+        "if observed no symptoms": 0,
+        "if observed mild/moderate": 0,
+        "if observed severe": 0,
+        "if observed critical": 0,
+        "if observed recuperation": 0
+      },
+      "for intervention 11": {
+        "if observed no symptoms": 0,
+        "if observed mild/moderate": 0,
+        "if observed severe": 0,
+        "if observed critical": 0,
+        "if observed recuperation": 0
+      },
+      "for intervention 12": {
+        "if observed no symptoms": 0,
+        "if observed mild/moderate": 0,
+        "if observed severe": 0,
+        "if observed critical": 0,
+        "if observed recuperation": 0
+      },
+      "for intervention 13": {
+        "if observed no symptoms": 0,
+        "if observed mild/moderate": 0,
+        "if observed severe": 0,
+        "if observed critical": 0,
+        "if observed recuperation": 0
+      },
+      "for intervention 14": {
+        "if observed no symptoms": 0,
+        "if observed mild/moderate": 0,
+        "if observed severe": 0,
+        "if observed critical": 0,
+        "if observed recuperation": 0
+      },
+      "for intervention 15": {
+        "if observed no symptoms": 0,
+        "if observed mild/moderate": 0,
+        "if observed severe": 0,
+        "if observed critical": 0,
+        "if observed recuperation": 0
+      },
+      "for intervention 16": {
+        "if observed no symptoms": 0,
+        "if observed mild/moderate": 0,
+        "if observed severe": 0,
+        "if observed critical": 0,
+        "if observed recuperation": 0
+      },
+      "for intervention 17": {
+        "if observed no symptoms": 0,
+        "if observed mild/moderate": 0,
+        "if observed severe": 0,
+        "if observed critical": 0,
+        "if observed recuperation": 0
+      }
+    }
+  },
+  "non-covid illness": {
+    "daily prob present non-covid": {
+        "with mild/moderate symptoms": {
+            "for 0-19y": 0.00010058,
+            "for 20-59y": 0.00012243,
+            "for >=60y": 0.00015029
+          },
+          "with severe symptoms": {
+            "for 0-19y": 0.0,
+            "for 20-59y": 0.0,
+            "for >=60y": 0.0
+          },
+          "with critical symptoms": {
+            "for 0-19y": 0.0,
+            "for 20-59y": 0.0,
+            "for >=60y": 0.0
+          }
+        },
+        "non covid symptom duration": {
+          "for mild/moderate symptoms": {
+            "for 0-19y": 5,
+            "for 20-59y": 5,
+            "for >=60y": 5
+          },
+          "for severe symptoms": {
+            "for 0-19y": 0,
+            "for 20-59y": 0,
+            "for >=60y": 0
+          },
+          "for critical symptoms": {
+            "for 0-19y": 0,
+            "for 20-59y": 0,
+            "for >=60y": 0
+      }
+    }
+  }
+}

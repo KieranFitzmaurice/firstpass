@@ -1,0 +1,25 @@
+{% load treeview_extras %}
+
+<ul class="nav nav-tabs" role="tablist">
+  {% for key,item in x.items %}
+  {% with itempath=key|replace_whitespace %}
+  <li class="nav-item">
+    <a class="nav-link" id={{ledger|keyvalue:itempath|keyvalue:"html_id"|add_tab}} data-toggle="tab" href={{ledger|keyvalue:itempath|keyvalue:"html_id"|add_ref}} role="tab" aria-controls={{ledger|keyvalue:itempath|keyvalue:"html_id"}}>{{ledger|keyvalue:itempath|keyvalue:"label"}}</a>
+  </li>
+  {% endwith %}
+  {% endfor %}
+</ul>
+
+<div class="tab-content mt-4">
+  {% for key,item in x.items %}
+  {% with itempath=key|replace_whitespace %}
+  <div class="tab-pane fade" id={{ledger|keyvalue:itempath|keyvalue:"html_id"}} role="tabpanel" aria-labelledby={{ledger|keyvalue:itempath|keyvalue:"html_id"|add_tab}}>
+    {% if ledger|keyvalue:itempath|keyvalue:"component_type" == "node" %}
+    {% include "tree_node_contents_view.html" with x=item ledger=ledger json_path=itempath %}
+    {% else %}
+    {% include ledger|keyvalue:itempath|keyvalue:"html_template" with x=item ledger=ledger json_path=itempath %}
+    {% endif %}
+  </div>
+  {% endwith %}
+  {% endfor %}
+</div>

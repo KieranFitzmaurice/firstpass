@@ -1,10 +1,21 @@
-<ul>
-{% for key,item in nestedjson %}
-  {% if not item.items %}
-  <li>{{key}} - <b>{{item}}</b></li>
-  {% else %}
-  <li>{{key}}</li>
-    {% include "tree_view_template.html" with nestedjson=item.items %}
-  {% endif %}
-{% endfor %}
+<ul class="nav nav-tab" role="tablist">
+  {% for key,item in nestedjson %}
+  <li class="nav-item">
+    <a class="nav-link" id={{parentid|add:"/"|add:key|cut:" "|add:"-tab"}} data-toggle="tab" data-parent=parentid href={{"#"|add:parentid|add:"/"|add:key|cut:" "}} role="tab" aria-controls={{parentid|add:"/"|add:key|cut:" "}}>{{key}}</a>
+  </li>
+  {% endfor %}
 </ul>
+<div class="tab-content">
+  {% for key,item in nestedjson %}
+    {% if not item.items %}
+    <div class="tab-pane border border-top-0" id={{parentid|add:"/"|add:key|cut:" "}} role="tabpanel" aria-labelledby={{parentid|add:"/"|add:key|cut:" "|add:"-tab"}}>
+      <b>{{key}} - {{item}}</b>
+    </div>
+    {% else %}
+    <div class="tab-pane border border-top-0" id={{parentid|add:"/"|add:key|cut:" "}} role="tabpanel" aria-labelledby={{parentid|add:"/"|add:key|cut:" "|add:"-tab"}}>
+      <hr/>
+      {% include "tree_view_template.html" with nestedjson=item.items parentid=parentid|add:"/"|add:key|cut:" " %}
+    </div>
+    {% endif %}
+  {% endfor %}
+</div>

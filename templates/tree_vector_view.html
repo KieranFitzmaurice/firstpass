@@ -1,0 +1,4 @@
+{% load treeview_extras %}
+<div class="mb-3">
+{{ledger|keyvalue:json_path|keyvalue:"label"}} - Vector of length {{ledger|keyvalue:json_path|keyvalue:"length"}}
+</div>
