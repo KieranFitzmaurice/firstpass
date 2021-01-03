@@ -1,4 +1,31 @@
 {% load treeview_extras %}
-<div class="mb-3">
-{{ledger|keyvalue:json_path|keyvalue:"label"}} - Table size {{ledger|keyvalue:json_path|keyvalue:"nrow"}} by {{ledger|keyvalue:json_path|keyvalue:"ncol"}}
+
+<div class="card mb-3">
+  <div class="card-header"><h5>{{ledger|keyvalue:json_path|keyvalue:"label"}}</h5></div>
+  <div class="card-body">
+    {% get_rownames x as rownames %}
+    {% get_colnames x as colnames %}
+    <div class="table-responsive">
+      <table style="width: auto;" class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            {% for col in colnames %}
+            <th scope="col">{{col}}</th>
+            {% endfor %}
+          </tr>
+        </thead>
+        <tbody>
+          {% for row in rownames %}
+          <tr>
+            <th scope="row">{{row}}</th>
+            {% for col in colnames %}
+            <td>{{x|keyvalue:row|keyvalue:col}}</td>
+            {% endfor %}
+            {% endfor %}
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>

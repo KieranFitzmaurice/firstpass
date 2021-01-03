@@ -42,3 +42,20 @@ def add_body(value):
     Adds _body onto the end of a string (use this to help distinguish between cards and card content)
     """
     return value + '_body'
+
+@register.simple_tag
+def get_rownames(x):
+    """
+    Gets row names from a dictionary representing a table
+    """
+    rownames = list(x.keys())
+    return rownames
+
+@register.simple_tag
+def get_colnames(x):
+    """
+    Gets column names from dictionary representing a table
+    """
+    k = list(x.keys())[0]
+    colnames = list(x[k].keys())
+    return colnames

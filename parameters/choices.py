@@ -557,7 +557,7 @@ def status_options():
     return choices
 
 def get_default_json():
-    filepath = os.path.join(os.path.dirname( __file__ ),'model_input_files','CEACOV-0-7.json')
+    filepath = os.path.join(os.path.dirname( __file__ ),'model_input_files','CEACOV-0-6.json')
     with open(filepath) as f:
         default_json = json.load(f)
         f.close()

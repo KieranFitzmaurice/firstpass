@@ -1,4 +1,7 @@
 {% load treeview_extras %}
-<div class="mb-3">
-{{ledger|keyvalue:json_path|keyvalue:"label"}} - Leaf
+<div class="card mb-3">
+  <div class="card-header"><h5>{{ledger|keyvalue:json_path|keyvalue:"label"}}</h5></div>
+  <div class="card-body">
+    {{x}}
+  </div>
 </div>

@@ -1,4 +1,19 @@
 {% load treeview_extras %}
-<div class="mb-3">
-{{ledger|keyvalue:json_path|keyvalue:"label"}} - Vector of length {{ledger|keyvalue:json_path|keyvalue:"length"}}
+<div class="card mb-3">
+  <div class="card-header"><h5>{{ledger|keyvalue:json_path|keyvalue:"label"}}</h5></div>
+  <div class="card-body">
+    {% get_rownames x as rownames %}
+    <div class="table-responsive">
+      <table style="width: auto;" class="table table-bordered">
+        <tbody>
+          {% for row in rownames %}
+          <tr>
+            <th scope="row">{{row}}</th>
+            <td class="mb-0">{{x|keyvalue:row}}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>

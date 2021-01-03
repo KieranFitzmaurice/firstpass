@@ -2,7 +2,7 @@
 <div class="card mb-3">
   <div class="card-header" id={{ledger|keyvalue:json_path|keyvalue:"html_id"}}>
       <button class="btn btn-link" type="button" data-toggle="collapse" data-target={{ledger|keyvalue:json_path|keyvalue:"html_id"|add_body|add_ref}} aria-expanded="false" aria-controls={{ledger|keyvalue:json_path|keyvalue:"html_id"|add_body}}>
-        {{ledger|keyvalue:json_path|keyvalue:"label"}}
+        <h5 class="mb-0 mt-0">{{ledger|keyvalue:json_path|keyvalue:"label"}}</h5>
       </button>
   </div>
   <div id={{ledger|keyvalue:json_path|keyvalue:"html_id"|add_body}} class="collapse" aria-labelledby={{ledger|keyvalue:json_path|keyvalue:"html_id"}}>

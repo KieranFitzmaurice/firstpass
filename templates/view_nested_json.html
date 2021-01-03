@@ -12,6 +12,28 @@ Input Files - {{ block.super }}
 {% endblock %}
 
 {% block content %}
+
+<style>
+  .table th {
+    border-top: 0 !important;
+    border-bottom: 0 !important;
+    border-left: 0 !important;
+    border-right: 0 !important;
+    padding-bottom: 3px !important;
+    padding-top: 3px !important;
+  }
+  .table td {
+    padding-bottom: 3px !important;
+    padding-top: 3px !important;
+  }
+  .table thead > tr > th {
+    border-bottom: none !important;
+  }
+  .card-header {
+
+  }
+</style>
+
 <div>
     {% include "tree_root_view.html" with x=infile.info ledger=infile.ledger %}
 </div>
