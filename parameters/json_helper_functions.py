@@ -259,6 +259,26 @@ def get_all_paths(x,mystr):
 
     return(mylist)
 
+def get_all_leaves(x,mystr):
+
+    """
+    Extracts the filepath of all tree leaves.
+    """
+
+    mylist = []
+    klist = list(x.keys())
+
+    for k in klist:
+        if get_type(x[k])=='leaf':
+            mylist = mylist + [mystr + k]
+        else:
+            mylist = mylist + get_all_leaves(x[k],mystr+k+"//")
+
+    # Remove spaces
+    mylist = [elem.replace(" ","__") for elem in mylist]
+
+    return(mylist)
+
 def get_generic_path(path):
     """
     Determine the "generic" json path that interchangeable components will share.
@@ -365,5 +385,20 @@ def build_metadata_ledger(x):
 
     return(ledger)
 
+def build_field_ledger(x):
+    """
+    This function collects the metadata associated with input file form fields (leaves of tree).
+    """
+    # Create empty dictionary
+    field_ledger = {}
 
-    return(x)
+    # Get paths for fields contained in JSON
+    all_fields = get_all_leaves(x,'')
+
+    # Add metadata to dictionary
+    for i in range(len(all_fields)):
+        fieldpath = all_fields[i]
+        fieldvalue = get_item(x,fieldpath)
+        field_ledger[fieldpath] = {'data_type': get_leaf_data_type(fieldvalue),
+                                   'initial': fieldvalue}
+    return(field_ledger)

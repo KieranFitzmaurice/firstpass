@@ -1,7 +1,9 @@
 {% load treeview_extras %}
 
 <div class="card mb-3">
-  <div class="card-header"><h5>{{ledger|keyvalue:json_path|keyvalue:"label"}}</h5></div>
+  <div class="card-header">
+    {% include "tree_parameter_info.html" %}
+  </div>
   <div class="card-body">
     {% get_rownames x as rownames %}
     {% get_colnames x as colnames %}
@@ -20,7 +22,9 @@
           <tr>
             <th scope="row">{{row}}</th>
             {% for col in colnames %}
-            <td>{{x|keyvalue:row|keyvalue:col}}</td>
+            {% with rowcolpath=json_path|add_to_path:row|add_to_path:col %}
+            <td><div class="fieldWrapper">{% bound_field form rowcolpath %}</div></td>
+            {% endwith %}
             {% endfor %}
             {% endfor %}
           </tr>

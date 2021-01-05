@@ -55,8 +55,10 @@ class DataSource(models.Model):
 class InFile(models.Model):
     DEFAULT_JSON = get_default_json()
     DEFAULT_LEDGER = jf.build_metadata_ledger(DEFAULT_JSON)
+    DEFAULT_FIELDLIST = jf.build_field_ledger(DEFAULT_JSON)
     info = models.JSONField(default = DEFAULT_JSON)
     ledger = models.JSONField(default = DEFAULT_LEDGER)
+    fieldlist = models.JSONField(default = DEFAULT_FIELDLIST)
 
 class Project(models.Model):
     name = models.CharField(max_length=30,unique=True)

@@ -6,6 +6,9 @@ register = template.Library()
 
 @register.filter
 def keyvalue(dictionary,key):
+    """
+    Retrieve dictionary key value
+    """
     return dictionary.get(key)
 
 @register.filter
@@ -59,3 +62,8 @@ def get_colnames(x):
     k = list(x.keys())[0]
     colnames = list(x[k].keys())
     return colnames
+
+@register.simple_tag
+def bound_field(form, fieldname):
+    """ Returns bound field """
+    return form.__getitem__(fieldname)

@@ -1,6 +1,6 @@
 {% load treeview_extras %}
 {% for key,item in x.items %}
   {% with itempath=json_path|add_to_path:key %}
-  {% include ledger|keyvalue:itempath|keyvalue:"html_template" with x=item ledger=ledger json_path=itempath %}
+  {% include ledger|keyvalue:itempath|keyvalue:"html_template" with x=item json_path=itempath %}
   {% endwith %}
 {% endfor %}

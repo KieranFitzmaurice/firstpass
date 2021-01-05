@@ -1,7 +1,17 @@
 {% load treeview_extras %}
 <div class="card mb-3">
-  <div class="card-header"><h5>{{ledger|keyvalue:json_path|keyvalue:"label"}}</h5></div>
+  <div class="card-header">
+    {% include "tree_parameter_info.html" %}
+  </div>
   <div class="card-body">
-    {{x}}
+    <table style="width: auto;" class="table table-bordered">
+      <tbody>
+        <tr>
+          <td>
+            <div class="fieldWrapper">{% bound_field form json_path %}</div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>

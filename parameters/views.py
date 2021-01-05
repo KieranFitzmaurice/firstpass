@@ -2,7 +2,7 @@ from django.contrib.auth.models import User
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse, Http404, HttpResponseRedirect
 from .models import Project, Parameter, DataSource, InFile
-from .forms import NewParameterForm, NewDataSourceForm
+from .forms import NewParameterForm, NewDataSourceForm, EditJSONForm
 from django.utils import timezone
 from .choices import get_short_code
 from .filters import ParameterFilter, DataSourceFilter
@@ -255,4 +255,21 @@ def unlink_param_from_data(request,data_pk,param_pk):
 
 def test_infile(request):
     infile = InFile.objects.all()[0:1].get()
-    return render(request,'view_nested_json.html',{'infile':infile})
+
+    if request.method == 'POST':
+        # create a form instance and populate it with data from the request:
+        form = EditJSONForm(request.POST,request.FILES,fieldlist=infile.fieldlist)
+        # check whether it's valid:
+        #if form.is_valid():
+        #    newdata = form.save(commit=False)
+        #    newdata.modified_by = user
+        #    newdata.modified_at = timezone.now()
+        #    newdata.CountryCode = get_short_code(newdata.Country)
+        #    newdata.save()
+        #    return redirect('view_data', pk=pk)
+
+    # if a GET (or any other method) we'll create a blank form
+    else:
+        form = EditJSONForm(fieldlist=infile.fieldlist)
+
+    return render(request,'view_nested_json.html', {'infile':infile,'form':form})
