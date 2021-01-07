@@ -25,6 +25,24 @@ def unpack(mystr):
 
     return(mylist)
 
+def string_to_integer_list(mystr):
+    """
+    This function converts a string representation of an integer list to an actual integer list
+    """
+
+    mystr=mystr.replace('[','')
+    mystr=mystr.replace(']','')
+
+    if len(mystr) == 0:
+        mylist = []
+    else:
+        mylist = mystr.split(',')
+
+    if len(mylist) > 0:
+        mylist = [int(elem) for elem in mylist]
+
+    return(mylist)
+
 def get_item(x,path):
     """
     This function returns the value of an item in a nested dictionary.
@@ -56,6 +74,8 @@ def update_item(x,path,value):
     else:
         k = pathlist.pop(0)
         x[k] = value
+
+    return(x)
 
 def is_leaf(x):
     """
@@ -402,3 +422,15 @@ def build_field_ledger(x):
         field_ledger[fieldpath] = {'data_type': get_leaf_data_type(fieldvalue),
                                    'initial': fieldvalue}
     return(field_ledger)
+
+def insert_form_data(x,formdata):
+    """
+    This function updates items in a nested dictionary based on data returned from a Django form.
+    formdata is a dictionary whose keys are the "filepath" of items in x
+    """
+    klist = list(formdata.keys())
+
+    for k in klist:
+        x = update_item(x,k,formdata[k])
+
+    return(x)

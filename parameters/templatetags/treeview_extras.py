@@ -5,6 +5,15 @@ from django import template
 register = template.Library()
 
 @register.filter
+def make_path_pretty(value):
+    """
+    Shows the filepath in a JSON to the user, with whitespace instead of a double underscore.
+    """
+    value = value.replace('__',' ')
+    value = value.replace('//',' // ')
+    return(value)
+
+@register.filter
 def keyvalue(dictionary,key):
     """
     Retrieve dictionary key value

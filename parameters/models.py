@@ -1,7 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
 from parameters.choices import country_options, publication_options, parameter_options, status_options, get_default_json
-import re
 import parameters.json_helper_functions as jf
 
 # Create your models here.

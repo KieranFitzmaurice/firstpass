@@ -73,6 +73,9 @@ input::-webkit-inner-spin-button {
 </style>
 
 <div>
+  <form method="post">
+    {% csrf_token %}
     {% include "tree_root_view.html" with x=infile.info ledger=infile.ledger form=form %}
+  </form>
 </div>
 {% endblock %}

@@ -8,7 +8,10 @@
       <tbody>
         <tr>
           <td>
-            <div class="fieldWrapper">{% bound_field form json_path %}</div>
+            {% bound_field form json_path as field %}
+            <div class="fieldWrapper">
+              {{field}}
+            </div>
           </td>
         </tr>
       </tbody>

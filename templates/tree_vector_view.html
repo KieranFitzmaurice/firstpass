@@ -13,7 +13,10 @@
             <th scope="row">{{row}}</th>
             {% with rowpath=json_path|add_to_path:row %}
             <td class="mb-0">
-              <div class="fieldWrapper">{% bound_field form rowpath %}</div>
+                {% bound_field form rowpath as field %}
+              <div class="fieldWrapper">
+                {{field}}
+              </div>
             </td>
             {% endwith %}
           </tr>

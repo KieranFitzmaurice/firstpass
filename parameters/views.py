@@ -6,6 +6,7 @@ from .forms import NewParameterForm, NewDataSourceForm, EditJSONForm
 from django.utils import timezone
 from .choices import get_short_code
 from .filters import ParameterFilter, DataSourceFilter
+import parameters.json_helper_functions as jf
 
 # Create your views here.
 def home(request):
@@ -260,13 +261,13 @@ def test_infile(request):
         # create a form instance and populate it with data from the request:
         form = EditJSONForm(request.POST,request.FILES,fieldlist=infile.fieldlist)
         # check whether it's valid:
-        #if form.is_valid():
-        #    newdata = form.save(commit=False)
-        #    newdata.modified_by = user
-        #    newdata.modified_at = timezone.now()
-        #    newdata.CountryCode = get_short_code(newdata.Country)
-        #    newdata.save()
-        #    return redirect('view_data', pk=pk)
+        if form.is_valid():
+            formdata = form.process(fieldlist=infile.fieldlist)
+            infile.info = jf.insert_form_data(infile.info,formdata) # Update JSONField with new data
+            infile.ledger = jf.build_metadata_ledger(infile.info)
+            infile.fieldlist = jf.build_field_ledger(infile.info)
+            infile.save()
+            return redirect('home')
 
     # if a GET (or any other method) we'll create a blank form
     else:

@@ -1,4 +1,5 @@
 {% load treeview_extras %}
+{% load widget_tweaks %}
 
 <div class="card mb-3">
   <div class="card-header">
@@ -23,7 +24,10 @@
             <th scope="row">{{row}}</th>
             {% for col in colnames %}
             {% with rowcolpath=json_path|add_to_path:row|add_to_path:col %}
-            <td><div class="fieldWrapper">{% bound_field form rowcolpath %}</div></td>
+            {% bound_field form rowcolpath as field %}
+            <td><div class="fieldWrapper">
+              {{field}}
+            </div></td>
             {% endwith %}
             {% endfor %}
             {% endfor %}

@@ -1,6 +1,9 @@
 {% load treeview_extras %}
 
 <ul class="nav nav-tabs" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" id="save-tab" data-toggle="tab" href="#save-body" role="tab" aria-controls="save-body" aria-selected="true">save changes</a>
+  </li>
   {% for key,item in x.items %}
   {% with itempath=key|replace_whitespace %}
   <li class="nav-item">
@@ -11,15 +14,33 @@
 </ul>
 
 <div class="tab-content mt-4">
-  {% for key,item in x.items %}
-  {% with itempath=key|replace_whitespace %}
-  <div class="tab-pane fade" id={{ledger|keyvalue:itempath|keyvalue:"html_id"}} role="tabpanel" aria-labelledby={{ledger|keyvalue:itempath|keyvalue:"html_id"|add_tab}}>
-    {% if ledger|keyvalue:itempath|keyvalue:"component_type" == "node" %}
-    {% include "tree_node_contents_view.html" with x=item json_path=itempath %}
-    {% else %}
-    {% include ledger|keyvalue:itempath|keyvalue:"html_template" with x=item json_path=itempath %}
-    {% endif %}
+  <div class="tab-pane active" id="save-body" role="tabpanel" aria-labelledby="save-tab">
+    <button type="submit" class="btn btn-success mb-3">Save Changes</button>
+    {% if form.errors %}
+    <h5>Errors:</h5>
+    <ul>
+      {% for field in form %}
+      {% if field.errors %}
+      <li>{{field.name|make_path_pretty}}
+        <ul>
+          {% for error in field.errors %}
+          <li>{{error}}</li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+        {% endfor %}
+      </ul>
+      {% endif %}
+    </div>
+    {% for key,item in x.items %}
+    {% with itempath=key|replace_whitespace %}
+    <div class="tab-pane fade" id={{ledger|keyvalue:itempath|keyvalue:"html_id"}} role="tabpanel" aria-labelledby={{ledger|keyvalue:itempath|keyvalue:"html_id"|add_tab}}>
+      {% if ledger|keyvalue:itempath|keyvalue:"component_type" == "node" %}
+      {% include "tree_node_contents_view.html" with x=item json_path=itempath %}
+      {% else %}
+      {% include ledger|keyvalue:itempath|keyvalue:"html_template" with x=item json_path=itempath %}
+      {% endif %}
+    </div>
+    {% endwith %}
+    {% endfor %}
   </div>
-  {% endwith %}
-  {% endfor %}
-</div>
